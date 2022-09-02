@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All coin</title>
+  <!-- <script src="./js/index.js"></script> -->
+  <!-- <script src="./js/index_mobile.js"></script> -->
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="https://fonts.cdnfonts.com/css/circular-std-book" rel="stylesheet"> -->
+  <!-- sweetalert2 -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.3vh !important;
+      color: black !important;
+    }
+
+    .btnslide {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      color: white;
+      width: 31%;
+    }
+
+    .btnslide2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      color: white;
+      width: 31%;
+      margin-top: -5vh;
+    }
+
+    .center3 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .center33 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: wrap;
+    }
+
+    .img1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      object-fit: contain;
+      padding-top: 15vh;
+      width: 100%;
+    }
+
+    .line {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 10px 16px 10px;
+    }
+
+    .container {
+      height: 76vh;
+      overflow: scroll;
+    }
+
+    .s1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 20px;
+      gap: 106px;
+      width: 289px;
+      height: 35px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    .fa-heart {
+      /* position: absolute;
+  top: 50%;
+  left: 50%; */
+      transform: translate(-50%);
+      font-size: 20px;
+      color: #ff8484;
+      transition: 1s;
+    }
+
+    .background-heart::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f004";
+      transform: translate(-50%);
+      font-size: 20px;
+      color: red;
+      transition: 1s;
+      z-index: -1;
+      animation: fill-heart 1s;
+    }
+
+    .background-heart::before {
+      content: "";
+
+      position: absolute;
+
+      transform: translate(-50%);
+      z-index: -1;
+      border-radius: 200px;
+      animation: circle-expand 1s;
+    }
+
+    @keyframes fill-heart {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+
+
+  <section id="ssss">
+
+    <div style="background-color: #30519B; height: 100vh;">
+
+      <div>
+        <img src="./img/faii_final.gif" class="img1">
+      </div>
+      <div class="center3">
+        <div class="btnslide">
+          <img src="./img/uparrow.png" style="width: 20%;">
+          <div>SLIDE</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="aaaa" style="display: none;">
+    <div style="background-color:#30519B ;">
+      <div style=" display: flex;justify-content: space-between;padding: 10px 10px 10px 10px; ">
+        <div style="color:#FFFFFF ;">
+          logo
+        </div>
+        <div style="width:5% ;">
+          <img src="./img/11.png" alt="">
+        </div>
+      </div>
+      <div class="center33">
+        <img src="./img/medicoin.png" style="width: 100%;">
+        <div class="btnslide2">
+          <img src="./img/downarrow.png" style="width: 20%;">
+          <div>SLIDE</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:20px ;">
+      <div style=" display: flex; justify-content: space-between; align-items: center;padding-bottom: 2vh;  ">
+
+        <div class="s1">
+          <input id="inputsearch" type="text" placeholder="Search..."
+            style=" border: none; width: 100%; height: 50%;padding: 10px;outline: none;">
+          <img src="./img/find.png" alt="" style="width:6% ;">
+        </div>
+        <div onclick="showcoinfav()" style="display: flex;justify-content: end;align-items: center; ">
+          <i id="filterfav" class="far fa-heart"></i>
+        </div>
+      </div>
+
+      <div id="coineename" class="container" style="width:100% ; justify-content: center;align-items:center">
+        <div id="BTC" class="line">
+          <div onclick="clicktofav('BTC','favbuttonbtc')">
+            <i id="favbuttonbtc" class="far fa-heart"></i>
+          </div>
+          <img src="./img/BTC.png" style="width:14%;padding-right: 10px;">
+          <div onclick="nextpage()" style="width:100% ;">
+            <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
+              <span>BTC</span>
+              <div>
+                <span id="priceofbtc">0</span>
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+              <div style="font-size: 12px;display: flex;
+                  justify-content: flex-start">
+                <span>vol :</span>
+                <span id="volofbtc">0</span>
+              </div>
+              <div style="font-size: 12px;">
+                <span id="percenofbtc">0</span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="ETH" class="line">
+          <div onclick="clicktofav('ETH','favbuttoneth')">
+            <i id="favbuttoneth" class="far fa-heart"></i>
+          </div>
+          <img src="./img/ETH.png" style="width:14%;padding-right: 10px;">
+          <div style="width:100% ;">
+            <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
+              <span>ETH</span>
+              <div>
+                <span id="priceofeth">0</span>
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+              <div style="font-size: 12px;display: flex;
+                justify-content: flex-start">
+                <span>vol :</span>
+                <span id="volofeth">0</span>
+              </div>
+              <div style="font-size: 12px;">
+                <span id="percenofeth">0</span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="WAN" class="line">
+          <div onclick="clicktofav('WAN','favbuttonwan')">
+            <i id="favbuttonwan" class="far fa-heart"></i>
+          </div>
+          <img src="./img/wan.png" style="width:14%;padding-right: 10px;">
+          <div style="width:100% ;">
+            <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
+              <span>WAN</span>
+              <div>
+                <span id="priceofwan">0</span>
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+              <div style="font-size: 12px;display: flex;
+                justify-content: flex-start">
+                <span>vol :</span>
+                <span id="volofwan">0</span>
+              </div>
+              <div style="font-size: 12px;">
+                <span id="percenofwan">0</span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="XRP" class="line">
+          <div onclick="clicktofav('XRP','favbuttonxrp')">
+            <i id="favbuttonxrp" class="far fa-heart"></i>
+          </div>
+          <img src="./img/XRP.png" style="width:14%;padding-right: 10px;">
+          <div style="width:100% ;">
+            <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
+              <span>XRP</span>
+              <div>
+                <span id="priceofxrp">0</span>
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+              <div style="font-size: 12px;display: flex;
+                justify-content: flex-start">
+                <span>vol :</span>
+                <span id="volofxrp">0</span>
+              </div>
+              <div style="font-size: 12px;">
+                <span id="percenofxrp">0</span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="LTC" class="line">
+          <div onclick="clicktofav('LTC','favbuttonltc')">
+            <i id="favbuttonltc" class="far fa-heart"></i>
+          </div>
+          <img src="./img/LTC.png" style="width:14%;padding-right: 10px;">
+          <div style="width:100% ;">
+            <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
+              <span>LTC</span>
+              <div>
+                <span id="priceofltc">0</span>
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+              <div style="font-size: 12px;display: flex;
+                justify-content: flex-start">
+                <span>vol :</span>
+                <span id="volofltc">0</span>
+              </div>
+              <div style="font-size: 12px;">
+                <span id="percenofltc">0</span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="BCH" class="line">
+          <div onclick="clicktofav('BCH','favbuttonbch')">
+            <i id="favbuttonbch" class="far fa-heart"></i>
+          </div>
+          <img src="./img/BCH.png" style="width:14%;padding-right: 10px;">
+          <div style="width:100% ;">
+            <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
+              <span>BCH</span>
+              <div>
+                <span id="priceofbch">0</span>
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+              <div style="font-size: 12px;display: flex;
+                justify-content: flex-start">
+                <span>vol :</span>
+                <span id="volofbch">0</span>
+              </div>
+              <div style="font-size: 12px;">
+                <span id="percenofbch">0</span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="USDT" class="line">
+          <div onclick="clicktofav('USDT','favbuttonusdt')">
+            <i id="favbuttonusdt" class="far fa-heart"></i>
+          </div>
+          <img src="./img/USDT.png" style="width:14%;padding-right: 10px;">
+          <div style="width:100% ;">
+            <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
+              <span>USDT</span>
+              <div>
+                <span id="priceofusdt">0</span>
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+              <div style="font-size: 12px;display: flex;
+                justify-content: flex-start">
+                <span>vol :</span>
+                <span id="volofusdt">0</span>
+              </div>
+              <div style="font-size: 12px;">
+                <span id="percenofusdt">0</span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="BNB" class="line">
+          <div onclick="clicktofav('BNB','favbuttonbnb')">
+            <i id="favbuttonbnb" class="far fa-heart"></i>
+          </div>
+          <img src="./img/BNB.png" style="width:14%;padding-right: 10px;">
+          <div style="width:100% ;">
+            <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
+              <span>BNB</span>
+              <div>
+                <span id="priceofbnb">0</span>
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+              <div style="font-size: 12px;display: flex;
+                justify-content: flex-start">
+                <span>vol :</span>
+                <span id="volofbnb">0</span>
+              </div>
+              <div style="font-size: 12px;">
+                <span id="percenofbnb">0</span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="XLM" class="line">
+          <div onclick="clicktofav('XLM','favbuttonxlm')">
+            <i id="favbuttonxlm" class="far fa-heart"></i>
+          </div>
+          <img src="./img/XLM.png" style="width:14%;padding-right: 10px;">
+          <div style="width:100% ;">
+            <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
+              <span>XLM</span>
+              <div>
+                <span id="priceofxlm">0</span>
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+              <div style="font-size: 12px;display: flex;
+                justify-content: flex-start">
+                <span>vol :</span>
+                <span id="volofxlm">0</span>
+              </div>
+              <div style="font-size: 12px;">
+                <span id="percenofxlm">0</span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="SHIB" class="line">
+          <div onclick="clicktofav('SHIB','favbuttonshib')">
+            <i id="favbuttonshib" class="far fa-heart"></i>
+          </div>
+          <img src="./img/SHIB.png" style="width:14%;padding-right: 10px;">
+          <div style="width:100% ;">
+            <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
+              <span>SHIB</span>
+              <div>
+                <span id="priceofshib">0</span>
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+              <div style="font-size: 12px;display: flex;
+                justify-content: flex-start">
+                <span>vol :</span>
+                <span id="volofshib">0</span>
+              </div>
+              <div style="font-size: 12px;">
+                <span id="percenofshib">0</span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <script>
+    $(document).ready(function () {
+      abc()
+
+      setInterval(() => {
+
+        abc()
+      }, 30000);
+
+    })
+
+    var lowestbtc = 0;
+    var lowesteth = 0;
+    var lowestwan = 0;
+    var lowestxrp = 0;
+    var lowestltc = 0;
+    var lowestbch = 0;
+    var lowestbnb = 0;
+    var lowestxlm = 0;
+    var lowestshib = 0;
+    var lowestusdt = 0;
+
+    var lowest_btc_arr = [];
+    var lowest_eth_arr = [];
+    var lowest_wan_arr = [];
+    var lowest_xrp_arr = [];
+    var lowest_ltc_arr = [];
+    var lowest_bch_arr = [];
+    var lowest_bnb_arr = [];
+    var lowest_xlm_arr = [];
+    var lowest_shib_arr = [];
+    var lowest_usdt_arr = [];
+    var all_lowest_coin = [];
+
+
+    async function abc() {
+
+
+      $.ajax({
+        type: 'post',
+        url: 'http://localhost:3000/api/getcoinname',
+        data: {},
+        success: function (response) {
+          var globalcoin = response.result
+          all_lowest_coin = [];
+          // console.log("12345",globalcoin);
+
+
+          //BTC
+          for (let i = 0; i < globalcoin.length; i++) {
+
+            if (globalcoin[i].coinname == "BTC") {
+              if (lowestbtc == 0) {
+                lowest_btc_arr = [];
+                lowestbtc = globalcoin[i].price;
+                lowest_btc_arr.push(globalcoin[i]);
+
+              } else {
+
+                if (lowestbtc > globalcoin[i].price) {
+                  lowest_btc_arr = [];
+                  lowestbtc = globalcoin[i].price;
+                  lowest_btc_arr.push(globalcoin[i]);
+
+                }
+              }
+            } else if (globalcoin[i].coinname == "ETH") {
+              if (lowesteth == 0) {
+                lowest_eth_arr = [];
+                lowesteth = globalcoin[i].price;
+                lowest_eth_arr.push(globalcoin[i]);
+
+              } else {
+
+                if (lowesteth > globalcoin[i].price) {
+                  lowest_eth_arr = [];
+                  lowesteth = globalcoin[i].price;
+                  lowest_eth_arr.push(globalcoin[i]);
+
+                }
+              }
+            } else if (globalcoin[i].coinname == "WAN") {
+              if (lowestwan == 0) {
+                lowest_wan_arr = [];
+                lowestwan = globalcoin[i].price;
+                lowest_wan_arr.push(globalcoin[i]);
+
+              } else {
+
+                if (lowestwan > globalcoin[i].price) {
+                  lowest_wan_arr = [];
+                  lowestwan = globalcoin[i].price;
+                  lowest_wan_arr.push(globalcoin[i]);
+
+                }
+              }
+            } else if (globalcoin[i].coinname == "XRP") {
+              if (lowestxrp == 0) {
+                lowest_xrp_arr = [];
+                lowestxrp = globalcoin[i].price;
+                lowest_xrp_arr.push(globalcoin[i]);
+
+              } else {
+
+                if (lowestxrp > globalcoin[i].price) {
+                  lowest_xrp_arr = [];
+                  lowestxrp = globalcoin[i].price;
+                  lowest_xrp_arr.push(globalcoin[i]);
+
+                }
+              }
+            } else if (globalcoin[i].coinname == "LTC") {
+              if (lowestltc == 0) {
+                lowest_ltc_arr = [];
+                lowestltc = globalcoin[i].price;
+                lowest_ltc_arr.push(globalcoin[i]);
+
+              } else {
+
+
+                if (lowestltc > globalcoin[i].price) {
+                  lowest_ltc_arr = [];
+                  lowestltc = globalcoin[i].price;
+                  lowest_ltc_arr.push(globalcoin[i]);
+
+                }
+              }
+            } else if (globalcoin[i].coinname == "BCH") {
+              if (lowestbch == 0) {
+                lowest_bch_arr = [];
+                lowestbch = globalcoin[i].price;
+                lowest_bch_arr.push(globalcoin[i]);
+              } else {
+
+
+                if (lowestbch > globalcoin[i].price) {
+                  lowest_bch_arr = [];
+                  lowestbch = globalcoin[i].price;
+                  lowest_bch_arr.push(globalcoin[i]);
+
+                }
+              }
+            } else if (globalcoin[i].coinname == "BNB") {
+              if (lowestbnb == 0) {
+                lowest_bnb_arr = [];
+                lowestbnb = globalcoin[i].price;
+                lowest_bnb_arr.push(globalcoin[i]);
+
+              } else {
+
+                if (lowestbnb > globalcoin[i].price) {
+                  lowest_bnb_arr = [];
+                  lowestbnb = globalcoin[i].price;
+                  lowest_bnb_arr.push(globalcoin[i]);
+
+                }
+              }
+            } else if (globalcoin[i].coinname == "XLM") {
+              if (lowestxlm == 0) {
+                lowest_xlm_arr = [];
+                lowestxlm = globalcoin[i].price;
+                lowest_xlm_arr.push(globalcoin[i]);
+
+              } else {
+
+                if (lowestxlm > globalcoin[i].price) {
+                  lowest_xlm_arr = [];
+                  lowestxlm = globalcoin[i].price;
+                  lowest_xlm_arr.push(globalcoin[i]);
+
+                }
+              }
+            } else if (globalcoin[i].coinname == "SHIB") {
+              if (lowestshib == 0) {
+                lowest_shib_arr = [];
+                lowestshib = globalcoin[i].price;
+                lowest_shib_arr.push(globalcoin[i]);
+
+              } else {
+
+                if (lowestshib > globalcoin[i].price) {
+                  lowest_shib_arr = [];
+                  lowestshib = globalcoin[i].price;
+                  lowest_shib_arr.push(globalcoin[i]);
+
+                }
+              }
+            } else if (globalcoin[i].coinname == "USDT") {
+              if (lowestusdt == 0) {
+                lowest_usdt_arr = [];
+                lowestusdt = globalcoin[i].price;
+                lowest_usdt_arr.push(globalcoin[i]);
+
+              } else {
+
+                if (lowestusdt > globalcoin[i].price) {
+                  lowest_usdt_arr = [];
+                  lowestusdt = globalcoin[i].price;
+                  lowest_usdt_arr.push(globalcoin[i]);
+
+
+                }
+              }
+            }
+          }
+          //
+          all_lowest_coin.push(lowest_btc_arr);
+          all_lowest_coin.push(lowest_eth_arr);
+          all_lowest_coin.push(lowest_wan_arr);
+          all_lowest_coin.push(lowest_xrp_arr);
+          all_lowest_coin.push(lowest_ltc_arr);
+          all_lowest_coin.push(lowest_bch_arr);
+          all_lowest_coin.push(lowest_bnb_arr);
+          all_lowest_coin.push(lowest_xlm_arr);
+          all_lowest_coin.push(lowest_shib_arr);
+          all_lowest_coin.push(lowest_usdt_arr);
+
+
+          // $('#coineename').empty();
+
+
+          appendtofront()
+
+        }
+
+      });
+
+
+    }
+
+
+
+    function appendtofront() {
+
+      for (let i = 0; i < all_lowest_coin.length; i++) {
+        for (var j = 0; j < all_lowest_coin[i].length; j++) {
+          if (all_lowest_coin[i][j].coinname == "BTC") {
+
+            $('#priceofbtc').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
+            $('#volofbtc').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
+            $('#percenofbtc').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
+
+          } else if (all_lowest_coin[i][j].coinname == "ETH") {
+
+            $('#priceofeth').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
+            $('#volofeth').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
+            $('#percenofeth').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
+
+          } else if (all_lowest_coin[i][j].coinname == "WAN") {
+
+            $('#priceofwan').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
+            $('#volofwan').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
+            $('#percenofwan').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
+
+          }
+          else if (all_lowest_coin[i][j].coinname == "XRP") {
+
+            $('#priceofxrp').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
+            $('#volofxrp').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
+            $('#percenofxrp').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
+
+          }
+          else if (all_lowest_coin[i][j].coinname == "LTC") {
+
+            $('#priceofltc').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
+            $('#volofltc').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
+            $('#percenofltc').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
+
+          }
+          else if (all_lowest_coin[i][j].coinname == "BCH") {
+
+            $('#priceofbch').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
+            $('#volofbch').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
+            $('#percenofbch').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
+
+          }
+          else if (all_lowest_coin[i][j].coinname == "USDT") {
+
+            $('#priceofusdt').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
+            $('#volofusdt').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
+            $('#percenofusdt').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
+
+          }
+          else if (all_lowest_coin[i][j].coinname == "BNB") {
+
+            $('#priceofbnb').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
+            $('#volofbnb').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
+            $('#percenofbnb').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
+
+          }
+          else if (all_lowest_coin[i][j].coinname == "XLM") {
+
+            $('#priceofxlm').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
+            $('#volofxlm').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
+            $('#percenofxlm').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
+
+          }
+          else if (all_lowest_coin[i][j].coinname == "SHIB") {
+
+            $('#priceofshib').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
+            $('#volofshib').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
+            $('#percenofshib').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
+
+          } else {
+            console.log("error can't find coin");
+          }
+        }
+      }
+
+      // var html = ``
+      // for (let i = 0; i < all_lowest_coin.length; i++) {
+      //   for (var j = 0; j < all_lowest_coin[i].length; j++) {
+      //     html += `
+      //       <div class="line"><img src="./img/Vector (2).png" style="width:7.7%;padding-right:11px ;"> <img
+      //           src="./img/${all_lowest_coin[i][j].coinname}.png" style="width:14%;padding-right: 10px;">
+      //         <div style="width:100% ;">
+      //           <div style="width:100%;font-size: 16px;display: flex;
+      //                           justify-content: space-between;">${all_lowest_coin[i][j].coinname}
+      //             <div>$${all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0)}</div>
+      //           </div>
+      //           <div style="width:100%;font-size: 12px;display: flex;
+      //                 justify-content: space-between; ">vol : ${all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2)}
+      //             <div style="">${all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2)}% </div>
+      //           </div>
+      //         </div>
+      //       </div>
+      //       `
+      //   }
+      // }
+      // $('#coineename').html(html)
+
+    }
+
+
+
+    var coinfav = [];
+
+    function clicktofav(id, where) {
+      // console.log('asdsad',$('#' + where).hasClass("background-heart"));
+      if ($('#' + where).hasClass("background-heart")) {
+        coinfav.push(id)
+        localStorage.setItem('favcoin', (coinfav))
+        // console.log(coinfav);
+      } else {
+        // console.log('erorrrrrrrrr');
+        coinfav.find((value, index) => {
+
+          if (value == id) {
+            // console.log('value', value)
+            // console.log('index', index)
+            coinfav.splice(index, 1)
+            // localStorage.removeItem(index,1)
+          }
+        })
+
+
+
+      }
+      // coinfav.push(id)
+      // console.log(coinfav);
+
+    }
+    function showcoinfav() {
+
+      if ($('#filterfav').hasClass("background-heart")) {
+        $('.line').css("display", 'none')
+        for (let i = 0; i < coinfav.length; i++) {
+          $('#' + coinfav[i]).css('display', '')
+        }
+      } else {
+        $('.line').css('display', '')
+      }
+    }
+
+    $(".fa-heart").click(function () {
+      $(this).toggleClass("background-heart");
+    });
+
+
+
+
+
+
+    $(".btnslide").click(function () {
+      $("#ssss").slideUp();
+      $('#aaaa').css('display', '')
+      $(".btnslide").click(function () {
+        $("#ssss").slideUp();
+        $('#aaaa').css('display', '')
+        $(document).unbind('scroll');
+        $('body').css({ 'overflow': 'visible' });
+      });
+      $(".btnslide2").click(function () {
+        $("#ssss").slideDown();
+        // $('#aaaa').hide();
+        $('#aaaa').css('display', '')
+        $('body').css({ 'overflow': 'hidden' });
+        $(document).bind('scroll', function () {
+          window.scrollTo(0, 0);
+
+        });
+      });
+    })
+
+   
+
+    function nextpage() {
+      window.location.href = "./incoin.html"
+    }
+  </script>
+  <script>
+     $("#inputsearch").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $(".line").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  </script>
+</body>
+
+</html>

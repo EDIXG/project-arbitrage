@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="" style="display:flex; flex-direction: column;">
+
+        <span id=""></span>
+
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            abc()
+
+        })
+
+        var bitkub = []
+        var gemini = []
+        var coinbase = []
+        var binance = []
+        var liquid = []
+        var tokocrypto = []
+        var coinflex = []
+        var hotcoin = []
+
+        var kkk = {}
+
+
+        async function getname() {
+            await $.get("https://www.bitkub.com/api/market/market-prices-with-out-login", function (response) {
+
+
+                for (let index = 0; index < response.data.length; index++) {
+                    bitkub.push({
+                        webname : "bitkub",
+                        name : response.data[index].currency,
+                        price: response.data[index].last_price,
+                        vol : response.data[index].volume,
+                        percen : response.data[index].percentage
+                    })
+
+
+                }
+
+            });
+
+            await $.get("https://www.gemini.com/api/all-prices/1d", function (response) {
+
+
+
+                for (let i = 0; i < response.prices.length; i++) {
+                    gemini.push({
+                        webname : "gemini",
+                        name: response.prices[i].coin,
+                        price: response.prices[i].ask,
+                        vol : response.prices[i].rangeDelta,
+                        percen : response.prices[i].rangePercentDelta
+
+                    })
+
+                }
+
+            });
+
+            await $.get("https://www.coinbase.com/api/v2/assets/search?base=USD&country=TH&filter=all&include_prices=true&limit=7&order=asc&page=1&query=&resolution=day&sort=rank", function (response) {
+
+                
+
+                for (let i = 0; i < response.data.length; i++) {
+                    coinbase.push({
+                        webname : "coinbase",
+                        name:response.data[i].symbol,
+                        price : response.data[i].latest,
+                        vol : response.data[i].volume_24h,
+                        percen : response.data[i].percent_change
+                    })
+
+                }
+
+            });
+
+            // await $.get("https://www.binance.com/bapi/asset/v2/public/asset/asset/get-all-asset", function (response) {
+            await $.get("https://www.binance.com/bapi/composite/v1/public/marketing/symbol/list", function (response) {
+
+
+                for (let i = 0; i < response.data.length; i++) {
+                    binance.push({
+                        webname : "binance",
+                        name : response.data[i].name,
+                        price : response.data[i].price,
+                        vol : response.data[i].volume,
+                        percen : response.data[i].dayChange
+                    
+                    })
+
+                }
+
+            });
+
+
+
+
+
+            await $.get("https://api.liquid.com/currencies?with_rate=true&resolution=300&rate_type=mid", function (response) {
+
+
+
+                for (let i = 0; i < response.length; i++) {
+                    liquid.push({
+                        webname : "liquid",
+                        name: response[i].currency,
+                        price : response[i].exchange_rate,
+                        vol : null,
+                        percen : null
+                    
+                    })
+
+                }
+
+            });
+
+
+
+            await $.get("https://www.tokocrypto.com/v1/market/trading-pairs?quoteAsset=USDT&offset=0&limit=1000", function (response) {
+
+
+
+                for (let i = 0; i < response.data.list.length; i++) {
+                    tokocrypto.push({
+                        webname : "tokocrypto",
+                        name :response.data.list[i].baseAsset,
+                        price : response.data.list[i].price,
+                        vol : response.data.list[i].volume,
+                        percen : response.data.list[i].change24h
+                    
+                    
+                    })
+
+                }
+
+            });
+
+            await $.get("https://v2api.coinflex.com/v2/ohlc/public/perp/ticker", function (response) {
+
+
+
+                for (let i = 0; i < response.data.length; i++) {
+                    coinflex.push({
+                        webname : coinflex,
+                        name :response.data[i].contractValCurrency,
+                        price : response.data[i].marketPrice,
+                        vol : response.data[i].volume,
+                        percen : null   
+                    
+                    
+                    
+                    })
+
+                }
+
+            });
+
+
+
+
+
+
+
+
+            kkk = {
+                bitkub, 
+                gemini, 
+                coinbase, 
+                binance,
+                liquid, 
+                tokocrypto, 
+                coinflex
+
+            }
+
+            return kkk
+
+        }
+
+        async function abc() {
+            var abd = await getname()
+            // console.log(abd);
+            if (abd.bitkub && abd.gemini && abd.coinbase && abd.binance && abd.liquid && abd.tokocrypto && abd.coinflex
+            ) {
+                var intersec = await performIntersection
+                    (abd.bitkub, abd.gemini, abd.coinbase, abd.binance, abd.liquid, abd.tokocrypto,
+                        abd.coinflex)
+                console.log('intersec >>>> ', intersec)
+            }
+
+
+        }
+
+
+
+
+        async function performIntersection(arr1, arr2, arr3,
+            arr4, arr5, arr6, arr7) {
+
+                // console.log("arr1",arr1);
+                // console.log("arr2",arr2);
+                // console.log("arr3",arr3);
+                // console.log("arr4",arr4);
+                // console.log("arr5",arr5);
+                // console.log("arr6",arr6);
+                // console.log("arr7",arr7);
+
+            var btclist = ["BTC", "ETH", "WAN", "XRP", "LTC", "BCH", "USDT", "BNB", "XLM", "ADA"]
+
+            var akr1 = []
+            var akr2 = []
+            var akr3 = []
+            var akr4 = []
+            var akr5 = []
+            var akr6 = []
+            var akr7 = []
+
+
+
+
+
+            let intersectionResult = [];
+
+            for (var i = 0; i < btclist.length; i++) {
+                arr1.find(function (value) {
+                    if (value.name == btclist[i]) {
+                        akr1.push(value)
+
+                    }
+                })
+            }
+            console.log('akr1>>>>', akr1)
+
+
+
+            for (var i = 0; i < btclist.length; i++) {
+                arr2.find(function (value) {
+                    if (value.name == btclist[i]) {
+                        akr2.push(value)
+
+                    }
+                })
+            }
+            console.log('akr2>>>>', akr2)
+
+            for (var i = 0; i < btclist.length; i++) {
+                arr3.find(function (value) {
+                    if (value.name == btclist[i]) {
+                        akr3.push(value)
+
+                    }
+                })
+            }
+            console.log('akr3>>>>', akr3)
+
+            for (var i = 0; i < btclist.length; i++) {
+                arr4.find(function (value) {
+                    if (value.name == btclist[i]) {
+                        akr4.push(value)
+
+                    }
+                })
+            }
+            console.log('akr4>>>>', akr4)
+
+            for (var i = 0; i < btclist.length; i++) {
+                arr5.find(function (value) {
+                    if (value.name == btclist[i]) {
+                        akr5.push(value)
+
+                    }
+                })
+            }
+            console.log('akr5>>>>', akr5)
+
+            for (var i = 0; i < btclist.length; i++) {
+                arr6.find(function (value) {
+                    if (value.name == btclist[i]) {
+                        akr6.push(value)
+
+                    }
+                })
+            }
+            console.log('akr6>>>>', akr6)
+
+            for (var i = 0; i < btclist.length; i++) {
+                arr7.find(function (value) {
+                    if (value.name == btclist[i]) {
+                        akr7.push(value)
+
+                    }
+                })
+            }
+            console.log('akr7>>>>', akr7)
+
+
+
+
+
+
+            intersectionResult = {
+
+                bitkub: akr1,
+                gemini: akr2,
+                coinbase: akr3,
+                binance: akr4,
+                liquid: akr5,
+                tokocrypto: akr6,
+                coinflex: akr7,
+
+
+            }
+            return intersectionResult;
+
+
+        }
+    </script>
+
+
+</body>
+
+</html>
