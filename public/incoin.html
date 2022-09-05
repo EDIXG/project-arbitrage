@@ -223,6 +223,37 @@
 
             
 <script>
+
+$.urlParam = function (stats_code) {
+        var results = new RegExp("[?&]" + stats_code + "=([^&#]*)").exec(
+            window.location.href
+        );
+        if (results == null) {
+            return null;
+        }
+        return decodeURI(results[1]) || 0;
+    };
+
+    var id = $.urlParam("id");
+    // alert(id)
+
+    $.ajax({
+      type: 'post',
+      url: '',
+      data: {
+        id: id
+      },
+      success: function(response) {
+       // console.log('response : ', response)
+        if (response.ms == 'good') { 
+          $('#title_faq').text(response.result[0].title_en)
+          $('#detail_faq').text(response.result[0].detail_en)
+          $('#title').text(response.result[0].title_en)
+
+        }
+      }
+    })
+
     function prevpage() {
         location.replace("./introhome.html")
     }
