@@ -4,15 +4,15 @@ const mysql = require("mysql");
 const _ = require("lodash");
 const bodyParser = require("body-parser");
 const pgp = require("pg-promise")(/*options*/);
-const cn = "postgres://postgres:@localhost:5432/postgres";
+const cn = "postgres://postgres:edixg21@localhost:5432/abitrage";
 const db = pgp(cn);
 const axios = require("axios");
-const coinService = require("./services/get_coin_services");
+// const coinService = require("./services/get_coin_services");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-const server = app.listen(3000, () => {});
+//test
+const server = app.listen(3200, () => {});
 var bitkub = [];
 var coinbase = [];
 var binance = [];
@@ -436,5 +436,10 @@ app.post("/api/updatecoinprice", (req, res) => {
     });
   }
 });
+
+app.get('/api/stop_nodejs', (req, resp) => {
+  console.log("Close Server")
+  process.exit();
+})
 
 module.exports = app;
