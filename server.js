@@ -4,13 +4,15 @@ const mysql = require("mysql");
 const _ = require("lodash");
 const bodyParser = require("body-parser");
 const pgp = require("pg-promise")(/*options*/);
-const cn = "postgres://postgres:edixg21@localhost:5432/abitrage";
+const cn = "postgres://postgres:postgres@localhost:5432/abitrage";
 const db = pgp(cn);
 const axios = require("axios");
+const path = require("path");
 // const coinService = require("./services/get_coin_services");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 //test
 const server = app.listen(3200, () => {});
 var bitkub = [];
