@@ -212,7 +212,7 @@
       </div>
 
       <div id="coineename" class="container" style="width:100% ; justify-content: center;align-items:center">
-        <div id="BTC" class="line">
+        <!-- <div id="BTC" class="line">
           <div onclick="clicktofav('BTC','favbuttonbtc')">
             <i id="favbuttonbtc" class="far fa-heart"></i>
           </div>
@@ -462,7 +462,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </div>
@@ -488,7 +488,7 @@
         // ['BTC', 'ETH', 'WAN']
         console.log("showfav",showfav)
         for (let i = 0; i < showfav.length; i++) {
-          console.log(showfav[i].toLocaleLowerCase())
+          // console.log(showfav[i].toLocaleLowerCase())
             $('#favbutton'+ showfav[i].toLocaleLowerCase()).addClass("background-heart");
 
         }
@@ -520,7 +520,7 @@
     var lowest_usdt_arr = [];
     var all_lowest_coin = [];
 
-
+    
     async function abc() {
 
 
@@ -530,6 +530,7 @@
         data: {},
         success: function (response) {
           var globalcoin = response.result
+          
           all_lowest_coin = [];
           // console.log("12345",globalcoin);
 
@@ -720,115 +721,77 @@
 
     function appendtofront() {
 
+
+      var html = ``
       for (let i = 0; i < all_lowest_coin.length; i++) {
         for (var j = 0; j < all_lowest_coin[i].length; j++) {
-          if (all_lowest_coin[i][j].coinname == "BTC") {
+          html += `
 
-            $('#priceofbtc').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
-            $('#volofbtc').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
-            $('#percenofbtc').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
+          <div id="${all_lowest_coin[i][j].coinname}" class="line">
+          <div onclick="clicktofav('${all_lowest_coin[i][j].coinname}','${'favbutton'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}')">
+            <i id="${'favbutton'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}" class="far fa-heart"></i>
+          </div>
+          <img src="./img/${all_lowest_coin[i][j].coinname}.png" style="width:14%;padding-right: 10px;">
+          <div onclick="window.open('./incoin.html?id=${all_lowest_coin[i][j].id}', '_self')" style="width:100% ;">
+            <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
+              <span>${all_lowest_coin[i][j].coinname}</span>
+              <div>
+                <span id="${'priceof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">${all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0)}</span>
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: space-between;">
+              <div style="font-size: 12px;display: flex;
+                  justify-content: flex-start">
+                <span>vol :</span>
+                <span id="${'volof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">${all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2)}</span>
+              </div>
+              <div style="font-size: 12px;">
+                <span id="${'percenof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">${all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2):parseFloat(0).toFixed(2)}</span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          } else if (all_lowest_coin[i][j].coinname == "ETH") {
 
-            $('#priceofeth').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
-            $('#volofeth').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
-            $('#percenofeth').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
-
-          } else if (all_lowest_coin[i][j].coinname == "WAN") {
-
-            $('#priceofwan').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
-            $('#volofwan').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
-            $('#percenofwan').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
-
-          }
-          else if (all_lowest_coin[i][j].coinname == "XRP") {
-
-            $('#priceofxrp').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
-            $('#volofxrp').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
-            $('#percenofxrp').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
-
-          }
-          else if (all_lowest_coin[i][j].coinname == "LTC") {
-
-            $('#priceofltc').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
-            $('#volofltc').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
-            $('#percenofltc').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
-
-          }
-          else if (all_lowest_coin[i][j].coinname == "BCH") {
-
-            $('#priceofbch').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
-            $('#volofbch').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
-            $('#percenofbch').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
-
-          }
-          else if (all_lowest_coin[i][j].coinname == "USDT") {
-
-            $('#priceofusdt').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
-            $('#volofusdt').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
-            $('#percenofusdt').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
-
-          }
-          else if (all_lowest_coin[i][j].coinname == "BNB") {
-
-            $('#priceofbnb').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
-            $('#volofbnb').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
-            $('#percenofbnb').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
-
-          }
-          else if (all_lowest_coin[i][j].coinname == "XLM") {
-
-            $('#priceofxlm').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
-            $('#volofxlm').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
-            $('#percenofxlm').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
-
-          }
-          else if (all_lowest_coin[i][j].coinname == "SHIB") {
-
-            $('#priceofshib').text(all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0))
-            $('#volofshib').text(all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2))
-            $('#percenofshib').text(all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2))
-
-          } else {
-            console.log("error can't find coin");
-          }
+            
+            `
         }
+        
       }
+      $('#coineename').html(html)
 
-      // var html = ``
-      // for (let i = 0; i < all_lowest_coin.length; i++) {
-      //   for (var j = 0; j < all_lowest_coin[i].length; j++) {
-      //     html += `
-      //       <div class="line"><img src="./img/Vector (2).png" style="width:7.7%;padding-right:11px ;"> <img
-      //           src="./img/${all_lowest_coin[i][j].coinname}.png" style="width:14%;padding-right: 10px;">
-      //         <div style="width:100% ;">
-      //           <div style="width:100%;font-size: 16px;display: flex;
-      //                           justify-content: space-between;">${all_lowest_coin[i][j].coinname}
-      //             <div>$${all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0)}</div>
-      //           </div>
-      //           <div style="width:100%;font-size: 12px;display: flex;
-      //                 justify-content: space-between; ">vol : ${all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2)}
-      //             <div style="">${all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2)}% </div>
-      //           </div>
-      //         </div>
-      //       </div>
-      //       `
-      //   }
-      // }
-      // $('#coineename').html(html)
+      
+
+
 
     }
+
+    // <div class="line"><img src="./img/Vector (2).png" style="width:7.7%;padding-right:11px ;"> <img
+    //             src="./img/${all_lowest_coin[i][j].coinname}.png" style="width:14%;padding-right: 10px;">
+    //           <div style="width:100% ;">
+    //             <div style="width:100%;font-size: 16px;display: flex;
+    //                             justify-content: space-between;">${all_lowest_coin[i][j].coinname}
+    //               <div>$${all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0)}</div>
+    //             </div>
+    //             <div style="width:100%;font-size: 12px;display: flex;
+    //                   justify-content: space-between; ">vol : ${all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2)}
+    //               <div style="">${all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2)}% </div>
+    //             </div>
+    //           </div>
+    //         </div>
 
 
 
     var coinfav = [];
 
     function clicktofav(id, where) {
-      // console.log('asdsad',$('#' + where).hasClass("background-heart"));
+      console.log('asdsad',!$('#' + where).hasClass("background-heart"));
 
-      if ($('#' + where).hasClass("background-heart")) {
+      if (!$('#' + where).hasClass("background-heart")) {
         coinfav.push(id)
         localStorage.setItem('favcoin', (coinfav))
+        $('#' + where).addClass("background-heart")
         // console.log(coinfav);
 
       } else {
@@ -843,6 +806,8 @@
             localStorage.setItem('favcoin', (coinfav))
           }
         })
+        $('#' + where).removeClass("background-heart")
+
         console.log("coinfav", coinfav)
 
 
@@ -896,8 +861,10 @@
     })
 
 
+    // onclick="window.open('./faq_new2.html?id=${cate_arr[index].id}', '_self')"
 
-    function nextpage() {
+
+    function nextpage(id) {
       window.location.href = "./incoin.html"
     }
   </script>
