@@ -45,6 +45,7 @@
       border-radius: 20px;
       color: white;
       width: 31%;
+      margin-top: -13vh;
     }
 
     .btnslide2 {
@@ -56,7 +57,7 @@
       border-radius: 20px;
       color: white;
       width: 31%;
-      margin-top: -5vh;
+      margin-top: -7vh;
     }
 
     .center3 {
@@ -156,34 +157,23 @@
 <body style="overflow: hidden;">
 
   <section id="ssss">
-
-    <div style="background-color: #30519B; height: 100vh;">
-
-      <div>
-        <img src="./img/faii_final.gif" class="img1">
+    <div style="background-color: #30519b; height: 100vh;">
+      <img src="./img/faii_final.gif" style="width: 100%; height: 100vh; object-fit: contain;">
+    </div>
+    <div class="center33">
+      <div class="btnslide">
+        <img src="./img/uparrow.png" style="width: 20%;">
+        <div>SLIDE</div>
       </div>
-      <div class="center3">
-        <div class="btnslide">
-          <img src="./img/uparrow.png" style="width: 20%;">
-          <div>SLIDE</div>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <section id="aaaa" style="display: none; height: 100vh;">
-    <div style="background-color:red ; height: 40vh;">
-      <div style=" display: flex;justify-content: space-between;padding: 10px 10px 0px 10px; ">
-        <div style="color:#FFFFFF ;">
-          logo
-        </div>
-        <div style="width:5% ;">
-          <img src="./img/11.png" alt="">
-        </div>
+    <div>
+      <div>
+        <img src="./img/medicoin.png" style="width: 100%;">
       </div>
       <div class="center33">
-        <!-- <img src="./img/medicoin.png" style="width: 100%;"> -->
         <div class="btnslide2">
           <img src="./img/downarrow.png" style="width: 20%;">
           <div>SLIDE</div>
@@ -477,7 +467,7 @@
      
 
     })
-    var showfav = localStorage.getItem('favcoin').split(',')
+    var showfav = localStorage.getItem('favcoin').split(',');
     var lowestbtc = 0;
     var lowesteth = 0;
     var lowestwan = 0;
