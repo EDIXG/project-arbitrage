@@ -181,7 +181,7 @@
       </div>
     </div>
 
-    <div style="padding:20px; height: 60vh;">
+    <div style="padding:20px; height: 60vh; overflow: scroll;">
       <div style=" display: flex; justify-content: space-between; align-items: center;">
 
         <div class="s1">
@@ -702,7 +702,7 @@
             <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
               <span>${all_lowest_coin[i][j].coinname}</span>
               <div>
-                <span id="${'priceof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">${all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0)}</span>
+                <span id="${'priceof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">$${all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0)}</span>
               </div>
             </div>
             <div style="display: flex; width: 100%; justify-content: space-between;">
