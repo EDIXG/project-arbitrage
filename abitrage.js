@@ -351,6 +351,27 @@ app.post("/api/getcoinname", (req, res) => {
     });
 });
 
+app.post("/api/getcoinbyname", (req, res) => {
+  var coinname = _.get(req, ["body", "coinname"]);
+  db.any(`SELECT * from compare_coin where currentflag = 1 AND coinname = $1;`,[coinname])
+  
+    .then((data) => {
+      return res.status(200).json({
+        MESSAGE: "success",
+        ms: "good",
+        CODE: "200",
+        result: data && data[0] ? data : [],
+      });
+    })
+    .catch((error) => {
+      console.log("error ", error);
+      return res.status(500).json({
+        MESSAGE: "system error",
+        CODE: "500",
+      });
+    });
+});
+
 app.post("/api/insertcoinprice", (req, res) => {
   var coinname = _.get(req, ["body", "coinname"]);
   var price = _.get(req, ["body", "price"]);

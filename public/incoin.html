@@ -237,20 +237,21 @@
             return decodeURI(results[1]) || 0;
         };
 
-        var id = $.urlParam("id");
+        var coin = $.urlParam("id");
+        // console.log(coin)
         // alert(id)
 
-        // $.ajax({
-        //     type: 'post',
-        //     url: 'http://167.99.71.116:3200/api/getcoinname',
-        //     data: {
-        //         id: id
-        //     },
-        //     success: function (response) {
+        $.ajax({
+            type: 'post',
+            url: 'http://167.99.71.116:3200/api/getcoinname',
+            data: {
+                coinname: coin
+            },
+            success: function (response) {
                 
                
-        //     }
-        // })
+            }
+        })
 
         function prevpage() {
             location.replace("./introhome.html")
