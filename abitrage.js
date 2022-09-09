@@ -347,7 +347,7 @@ app.post("/api/getcoinname", (req, res) => {
 app.post("/api/getcoinbyname", (req, res) => {
   var coinname = _.get(req, ["body", "coinname"]);
   db.any(
-    `SELECT * from compare_coin where currentflag = 1 AND coinname = 'BTC'
+    `SELECT * from compare_coin where currentflag = 1 AND coinname = $1
   order by compare_coin.price asc ;`,
     [coinname]
   )
