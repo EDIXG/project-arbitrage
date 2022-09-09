@@ -12,15 +12,14 @@
 
 <style>
     .box1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
         padding: 10px;
         width: 100%;
         background: #1F212E;
         border-radius: 6vw;
-
+        color: #FFFFFF;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
     }
 
     .box {
@@ -43,6 +42,21 @@
         line-height: 24px;
         color: #FFFFFF;
     }
+
+    .hhh {
+        background-color: #3071E7;
+        display: none;
+        color: #FFFFFF;
+        border-radius: 25px;
+        padding: 7vh 10px 10px;
+        margin-top: -5vh;
+    }
+
+    .arrow {
+        width:5%; 
+        object-fit: contain;
+    }
+
 </style>
 
 <body>
@@ -75,70 +89,52 @@
         </div>
 
         <div style="padding-top: 3vh;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
+            <div id="drop" class="box1">
+                <span>jhbhbjb</span>
+                <img src="./img/downarrow.png" class="arrow">
+            </div>
+            <div id="hide" class="hhh">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ad quo, facere minima illo corrupti sint
+                accusantium ipsa
+                iusto veniam modi odit ipsam ducimus atque veritatis fugiat recusandae, delectus iste.
             </div>
         </div>
-        <div style="padding-top: 1vh;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
-            </div>
-        </div>
-        <div style="padding-top: 1vh;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
-            </div>
-        </div>
-        <div style="padding-top: 1vh;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
-            </div>
-        </div>
-        <div style="padding-top: 1vh;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
-            </div>
-        </div>
-        <div style="padding-top: 1vh;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
-            </div>
-            <!-- </div>
-        <div style="padding:5px 5px 5px 5px ;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
-            </div>
-        </div>
-        <div style="padding:5px 5px 5px 5px ;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
-            </div>
-        </div>
-        <div style="padding:5px 5px 5px 5px ;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
-            </div>
-        </div>
-        <div style="padding:5px 5px 5px 5px ;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
-            </div>
-        </div>
-        <div style="padding:5px 5px 5px 5px ;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
-            </div>
-        </div>
-        <div style="padding:5px 5px 5px 5px ;">
-            <div style="color:#FFFFFF ;" class="box1">
-                jhbhbjb
-            </div>
-        </div> -->
 
+        <div style="padding-top: 1vh;">
+            <div class="box1">
+                <span>jhbhbjb</span>
+                <img src="./img/downarrow.png" class="arrow">
+            </div>
+        </div>
+        <div style="padding-top: 1vh;">
+            <div class="box1">
+                <span>jhbhbjb</span>
+                <img src="./img/downarrow.png" class="arrow">
+            </div>
+        </div>
+        <div style="padding-top: 1vh;">
+            <div class="box1">
+                <span>jhbhbjb</span>
+                <img src="./img/downarrow.png" class="arrow">
+            </div>
+        </div>
+        <div style="padding-top: 1vh;">
+            <div class="box1">
+                <span>jhbhbjb</span>
+                <img src="./img/downarrow.png" class="arrow">
+            </div>
+        </div>
+        <div style="padding-top: 1vh;">
+            <div class="box1">
+                <span>jhbhbjb</span>
+                <img src="./img/downarrow.png" class="arrow">
+            </div>
         </div>
 </body>
 
 <script>
+    
+    
     // function change1() {
     //     document.getElementById("color1").style.backgroundColor = "#3071E7";
     //     document.getElementById("color2").style.backgroundColor = "#1F212E";
@@ -148,10 +144,13 @@
     //     document.getElementById("color1").style.backgroundColor = "#1F212E";
     // }
 
-    function change1() {
-        $("#color1").css("background-color", "#3071E7");
-        $("#color2")
-    }
+    // slide up/down
+    $(document).ready(function () {
+        $("#drop").click(function () {
+            $("#hide").slideToggle();
+            $("#hide").addClass("display", "");
+        });
+    });
 
 
 
