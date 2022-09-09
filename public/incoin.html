@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IN HOME</title>
+    <title id="cointitle"></title>
     <!-- <script src="./js/index.js"></script> -->
     <!-- <script src="./js/index_mobile.js"></script> -->
 
@@ -175,8 +175,8 @@
         function getcoininfo() {
 
 
-
-
+            var coinall = [];
+-
             $.ajax({
                 type: 'post',
                 url: 'http://167.99.71.116:3200/api/getcoinbyname',
@@ -184,14 +184,17 @@
                     coinname: coin
                 },
                 success: function (response) {
-
-
+                    coinall = [];
+                    
                     var coininfo = response.result
+                    coinall.push(coininfo)
+                        console.log("coinall",coinall)
+                        $('#cointitle').text(coininfo[0].coinname)
                     // console.log(coininfo)
                     var html = ``
                     var html2 = ``
                     html += ` 
-
+                    
         <div onclick="prevpage()"
                 style="display: flex; align-items: center; justify-content: space-between; margin-top: 3vh;">
                 <img src="./img/Vec.png" style="width: 6%;">
@@ -226,30 +229,35 @@
                     
                     `
 
-                    for (let i = 0; i < coininfo.length; i++) {
-                        html2 += `
+                    for (let i = 0; i < coinall.length; i++) {
+                        for (let j = 0; j < coinall[i].length; j++) {
+                            
+                            html2 += `
                     
                     <div class="rateaibox">
                     <div class="coinbox">
-                        <div class="coinimg"><img src="img/${coininfo[i].webname}.png"></div>
-                        <div style="margin-left: 1vh;">${coininfo[i].percen ? parseFloat(coininfo[i].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
-                        <div style="font-size: 16px;"><b>1 ${coininfo[i].coinname} </b></div>
-                        <div> = ${coininfo[i].price ? parseFloat(coininfo[i].price) : parseFloat(0)} </div>
+                        <div class="coinimg"><img src="img/${coinall[i][j].webname}.png"></div>
+                        <div style="margin-left: 1vh;">${coinall[i][j].percen ? parseFloat(coinall[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
+                        <div style="font-size: 16px;"><b>1 ${coinall[i][j].coinname} </b></div>
+                        <div> = ${coinall[i][j].price ? parseFloat(coinall[i][j].price) : parseFloat(0)} </div>
                     </div>
                     <div class="coinboxx">
                         <div class="goldvector"><img src="./img/goldvector.png"></div>
-                        <div class="coinimg"><img src="./img/${coininfo[i].coinname}.png"></div>
+                        <div class="coinimg"><img src="./img/${coinall[i][j].coinname}.png"></div>
                         <div class="goldvector"><img src="./img/goldvector.png"></div>
                     </div>
                     <div class="coinboxxx">
-                        <div class="coinimg"><img src="img/${coininfo[i].webname}.png"></div>
-                        <div style="margin-left: 1vh;">${coininfo[i].percen ? parseFloat(coininfo[i].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
-                        <div style="font-size: 16px;"><b>1 ${coininfo[i].coinname} </b></div>
-                        <div>= ${coininfo[i].price ? parseFloat(coininfo[i].price) : parseFloat(0)} </div>
+                        <div class="coinimg"><img src="img/${coinall[i][j].webname}.png"></div>
+                        <div style="margin-left: 1vh;">${coinall[i][j].percen ? parseFloat(coinall[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
+                        <div style="font-size: 16px;"><b>1 ${coinall[i][j].coinname} </b></div>
+                        <div>= ${coinall[i][j].price ? parseFloat(coinall[i][j].price) : parseFloat(0)} </div>
                     </div>
                 </div>
 
                     `
+                        }
+                        
+                        
 
                     }
 
