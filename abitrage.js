@@ -28,17 +28,17 @@ var kkk = {};
 var data = "";
 
 setInterval(() => {
-  getname()
+  getname();
 }, 60000);
 
 async function getname() {
   bitkub = [];
- coinbase = [];
- binance = [];
- liquid = [];
- tokocrypto = [];
- coinflex = [];
- thbprice = 0;
+  coinbase = [];
+  binance = [];
+  liquid = [];
+  tokocrypto = [];
+  coinflex = [];
+  thbprice = 0;
   globalcoin = [];
   var config = {
     method: "get",
@@ -193,12 +193,7 @@ async function getname() {
       console.log(error);
     });
 
-  findcoin(bitkub,
-    coinbase,
-    binance,
-    liquid,
-    tokocrypto,
-    coinflex);
+  findcoin(bitkub, coinbase, binance, liquid, tokocrypto, coinflex);
 }
 
 async function findcoin(
@@ -209,7 +204,6 @@ async function findcoin(
   tokocrypto,
   coinflex
 ) {
-
   globalcoin = [];
   var btclist = [
     "BTC",
@@ -319,17 +313,16 @@ async function findcoin(
     .catch((error) => {
       console.log(error);
     });
-
 }
 
 setInterval(() => {
-  deleterow7days()
+  deleterow7days();
 }, 7 * 24 * 3600 * 1000);
 
 function deleterow7days() {
-
-  db.any(`DELETE from compare_coin where currentflag = 0 and insertdate > '7 day'`)
-  
+  db.any(
+    `DELETE from compare_coin where currentflag = 0 and insertdate > '7 day'`
+  );
 }
 
 app.post("/api/getcoinname", (req, res) => {
@@ -353,8 +346,12 @@ app.post("/api/getcoinname", (req, res) => {
 
 app.post("/api/getcoinbyname", (req, res) => {
   var coinname = _.get(req, ["body", "coinname"]);
-  db.any(`SELECT * from compare_coin where currentflag = 1 AND coinname = $1;`,[coinname])
-  
+  db.any(
+    `SELECT * from compare_coin where currentflag = 1 AND coinname = 'BTC'
+  order by compare_coin.price asc ;`,
+    [coinname]
+  )
+
     .then((data) => {
       return res.status(200).json({
         MESSAGE: "success",
@@ -460,9 +457,9 @@ app.post("/api/updatecoinprice", (req, res) => {
   }
 });
 
-app.get('/api/stop_nodejs', (req, resp) => {
-  console.log("Close Server")
+app.get("/api/stop_nodejs", (req, resp) => {
+  console.log("Close Server");
   process.exit();
-})
+});
 
 module.exports = app;
