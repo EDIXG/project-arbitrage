@@ -133,7 +133,7 @@
 
                 <div style="display: flex; align-items: center; justify-content: center;">BEST RATE AI ROUTING</div>
 
-                
+
 
             </div>
 
@@ -159,10 +159,8 @@
 
         $(document).ready(function () {
             getcoininfo()
-            comparecoin()
             setInterval(() => {
                 getcoininfo()
-                comparecoin()
             }, 30000);
 
 
@@ -176,24 +174,24 @@
 
 
             var coinall = [];
--
-            $.ajax({
-                type: 'post',
-                url: 'http://167.99.71.116:3200/api/getcoinbyname',
-                data: {
-                    coinname: coin
-                },
-                success: function (response) {
-                    coinall = [];
-                    
-                    var coininfo = response.result
-                    coinall.push(coininfo)
-                        console.log("coinall",coinall)
+            -
+                $.ajax({
+                    type: 'post',
+                    url: 'http://167.99.71.116:3200/api/getcoinbyname',
+                    data: {
+                        coinname: coin
+                    },
+                    success: function (response) {
+                        coinall = [];
+
+                        var coininfo = response.result
+                        coinall.push(coininfo)
+                        console.log("coinall", coinall)
                         $('#cointitle').text(coininfo[0].coinname)
-                    // console.log(coininfo)
-                    var html = ``
-                    var html2 = ``
-                    html += ` 
+                        // console.log(coininfo)
+                        var html = ``
+                        var html2 = ``
+                        html += ` 
                     
         <div onclick="prevpage()"
                 style="display: flex; align-items: center; justify-content: space-between; margin-top: 3vh;">
@@ -202,7 +200,7 @@
             </div>
 
             <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 5.1vh;">
-                <img src="img/${coininfo[0].coinname}.png" style="width: 40px; height: 41px;">
+                <img src="./img/${coininfo[0].coinname}.png" style="width: 40px; height: 41px;">
                 <div onclick="clicktofav('${coininfo[0].coinname}','${'favbutton' + coininfo[0].coinname.toLocaleLowerCase()}')">
             <i id="${'favbutton' + coininfo[0].coinname.toLocaleLowerCase()}" class="far fa-heart"></i>
           </div>
@@ -229,14 +227,14 @@
                     
                     `
 
-                    for (let i = 0; i < coinall.length; i++) {
-                        for (let j = 0; j < coinall[i].length; j++) {
-                            
-                            html2 += `
+                        for (let i = 0; i < coinall.length; i++) {
+                            for (let j = 0; j < coinall[i].length; j++) {
+
+                                html2 += `
                     
                     <div class="rateaibox">
                     <div class="coinbox">
-                        <div class="coinimg"><img src="img/${coinall[i][j].webname}.png"></div>
+                        <div class="coinimg"><img src="./img/${coinall[i][j].webname}.png"></div>
                         <div style="margin-left: 1vh;">${coinall[i][j].percen ? parseFloat(coinall[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
                         <div style="font-size: 16px;"><b>1 ${coinall[i][j].coinname} </b></div>
                         <div> = ${coinall[i][j].price ? parseFloat(coinall[i][j].price) : parseFloat(0)} </div>
@@ -247,7 +245,7 @@
                         <div class="goldvector"><img src="./img/goldvector.png"></div>
                     </div>
                     <div class="coinboxxx">
-                        <div class="coinimg"><img src="img/${coinall[i][j].webname}.png"></div>
+                        <div class="coinimg"><img src="./img/${coinall[i][j].webname}.png"></div>
                         <div style="margin-left: 1vh;">${coinall[i][j].percen ? parseFloat(coinall[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
                         <div style="font-size: 16px;"><b>1 ${coinall[i][j].coinname} </b></div>
                         <div>= ${coinall[i][j].price ? parseFloat(coinall[i][j].price) : parseFloat(0)} </div>
@@ -255,38 +253,36 @@
                 </div>
 
                     `
+                            }
+
+
+
                         }
-                        
-                        
+                        $('#coindown').html(html2)
+                        $('#coinnameup').html(html)
+                        if (localStorage.getItem('favcoin') && localStorage.getItem('favcoin') != '') {
+                            // clicktofav()
+
+                            // ['BTC', 'ETH', 'WAN']
+                            console.log("showfav2", showfav2)
+                            for (let i = 0; i < showfav2.length; i++) {
+                                // console.log(showfav2[k].toLocaleLowerCase())
+                                // console.log("")
+                                $('#favbutton' + showfav2[i].toLocaleLowerCase()).addClass("background-heart");
+
+                            }
+
+                        } else {
+                            console.log("don't have favorit coin")
+                        }
+
 
                     }
 
 
-                    $('#coindown').html(html2)
-                    $('#coinnameup').html(html)
+                })
 
 
-                }
-
-
-            })
-
-            if (localStorage.getItem('favcoin') && localStorage.getItem('favcoin') != '') {
-
-                // clicktofav()
-
-                // ['BTC', 'ETH', 'WAN']
-                console.log("showfav2", showfav2)
-                for (let i = 0; i < showfav2.length; i++) {
-                    // console.log(showfav2[k].toLocaleLowerCase())
-                    // console.log("")
-                    $('#favbutton' + showfav2[i].toLocaleLowerCase()).addClass("background-heart");
-
-                }
-
-            }else {
-                console.log("don't have favorit coin")
-            }
 
 
         }
