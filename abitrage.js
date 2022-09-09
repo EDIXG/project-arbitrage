@@ -316,13 +316,13 @@ async function findcoin(
 }
 
 setInterval(() => {
-  deleterow7days();
+  deleterow7days()
 }, 7 * 24 * 3600 * 1000);
 
 function deleterow7days() {
   db.any(
     `DELETE from compare_coin where currentflag = 0 and insertdate > '7 day'`
-  );
+  )
 }
 
 app.post("/api/getcoinname", (req, res) => {
