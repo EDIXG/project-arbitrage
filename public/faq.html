@@ -53,17 +53,20 @@
     }
 
     .arrow {
-        width:5%; 
+        width: 5%;
         object-fit: contain;
     }
 
+    .rotate {
+        transform: rotate(180deg);
+    }
 </style>
 
 <body>
     <div style="background-color: #020517 ; padding: 2vh; height: 100vh;">
 
         <div style="width:100% ; display: flex; justify-content: space-around;align-items: center; ">
-            <div style="width:33%; color: #3071E7;">
+            <div style="width:33%;" onclick="window.open('./introhome.html','_self')">
                 <img src="/img/Vector (4).png" alt="" style="width:20%;">
             </div>
             <div style="width:33%;color:#FFFFFF;display: flex;justify-content: center;  ">
@@ -75,9 +78,9 @@
         </div>
 
         <div style="display:flex ; justify-content: space-between;padding-top: 10vw; overflow: scroll;">
-            <div class="box" style="margin-left: 0;" id="color1" onclick="change1(this)">All</div>
-            <div class="box" id="color2">All</div>
-            <div class="box">All</div>
+            <div class="box" style="margin-left: 0;" id="color1" onclick="change1(1)">All</div>
+            <div class="box" id="color2" onclick="change(2)">All</div>
+            <div class="box" id="color3" onclick="change(3)">All</div>
             <div class="box">All</div>
             <div class="box">All</div>
             <div class="box">All</div>
@@ -89,9 +92,9 @@
         </div>
 
         <div style="padding-top: 3vh;">
-            <div id="drop" class="box1">
+            <div id="drop" class="box1" onclick="test()">
                 <span>jhbhbjb</span>
-                <img src="./img/downarrow.png" class="arrow">
+                <img src="./img/downarrow.png" class="arrow" id="arr1">
             </div>
             <div id="hide" class="hhh">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ad quo, facere minima illo corrupti sint
@@ -103,7 +106,7 @@
         <div style="padding-top: 1vh;">
             <div class="box1">
                 <span>jhbhbjb</span>
-                <img src="./img/downarrow.png" class="arrow">
+                <img src="./img/downarrow.png" class="arrow" id="arr2">
             </div>
         </div>
         <div style="padding-top: 1vh;">
@@ -133,26 +136,29 @@
 </body>
 
 <script>
-    
-    
-    // function change1() {
-    //     document.getElementById("color1").style.backgroundColor = "#3071E7";
-    //     document.getElementById("color2").style.backgroundColor = "#1F212E";
-    // }
-    // function change2() {
+
+
+    function change1() {
+        document.getElementById().style.backgroundColor = "#3071E7";
+        document.getElementById().style.backgroundColor = "#1F212E";
+    }
+    // function change2(id) {
     //     document.getElementById("color2").style.backgroundColor = "#3071E7";
     //     document.getElementById("color1").style.backgroundColor = "#1F212E";
     // }
 
     // slide up/down
-    $(document).ready(function () {
-        $("#drop").click(function () {
-            $("#hide").slideToggle();
-            $("#hide").addClass("display", "");
-        });
-    });
-
-
+    function test() {
+      if ($(`#drop`).hasClass('show')) {
+        $(`#drop`).removeClass('show')
+        $("#hide").slideUp('fast');
+        $(`#arr1`).css({'transform':'rotate(360deg)'})
+      } else {
+        $(`#drop`).addClass('show')
+        $("#hide").slideDown('fast');
+        $(`#arr1`).css({'transform':'rotate(180deg)'})
+      }
+    }
 
 </script>
 
