@@ -133,105 +133,7 @@
 
                 <div style="display: flex; align-items: center; justify-content: center;">BEST RATE AI ROUTING</div>
 
-                <div class="rateaibox">
-                    <div class="coinbox">
-                        <div class="coinimg"><img src="./img/coinbase.png"></div>
-                        <div style="margin-left: 1vh;">84%</div>
-                        <div style="font-size: 16px;"><b>840 BTC</b></div>
-                        <div>～$194,3559.56</div>
-                    </div>
-                    <div class="coinboxx">
-                        <div class="goldvector"><img src="./img/goldvector.png"></div>
-                        <div class="coinimg"><img src="./img/BTC.png"></div>
-                        <div class="goldvector"><img src="./img/goldvector.png"></div>
-                    </div>
-                    <div class="coinboxxx">
-                        <div class="coinimg"><img src="./img/coinex.png"></div>
-                        <div style="margin-left: 1vh;">84%</div>
-                        <div style="font-size: 16px;"><b>840 BTC</b></div>
-                        <div>～$194,3559.56</div>
-                    </div>
-                </div>
-
-                <div class="rateaibox">
-                    <div class="coinbox">
-                        <div class="coinimg"><img src="./img/coinex.png"></div>
-                        <div style="margin-left: 1vh;">84%</div>
-                        <div style="font-size: 16px;"><b>840 BTC</b></div>
-                        <div>～$194,3559.56</div>
-                    </div>
-                    <div class="coinboxx">
-                        <div class="goldvector"><img src="./img/goldvector.png"></div>
-                        <div class="coinimg"><img src="./img/BTC.png"></div>
-                        <div class="goldvector"><img src="./img/goldvector.png"></div>
-                    </div>
-                    <div class="coinboxxx">
-                        <div class="coinimg"><img src="./img/coinFLEX.png"></div>
-                        <div style="margin-left: 1vh;">84%</div>
-                        <div style="font-size: 16px;"><b>840 BTC</b></div>
-                        <div>～$194,3559.56</div>
-                    </div>
-                </div>
-
-                <div class="rateaibox">
-                    <div class="coinbox">
-                        <div class="coinimg"><img src="./img/coinFLEX.png"></div>
-                        <div style="margin-left: 1vh;">84%</div>
-                        <div style="font-size: 16px;"><b>840 BTC</b></div>
-                        <div>～$194,3559.56</div>
-                    </div>
-                    <div class="coinboxx">
-                        <div class="goldvector"><img src="./img/goldvector.png"></div>
-                        <div class="coinimg"><img src="./img/BTC.png"></div>
-                        <div class="goldvector"><img src="./img/goldvector.png"></div>
-                    </div>
-                    <div class="coinboxxx">
-                        <div class="coinimg"><img src="./img/coinbase.png"></div>
-                        <div style="margin-left: 1vh;">84%</div>
-                        <div style="font-size: 16px;"><b>840 BTC</b></div>
-                        <div>～$194,3559.56</div>
-                    </div>
-                </div>
-
-                <div class="rateaibox">
-                    <div class="coinbox">
-                        <div class="coinimg"><img src="./img/coin01.png"></div>
-                        <div style="margin-left: 1vh;">84%</div>
-                        <div style="font-size: 16px;"><b>840 BTC</b></div>
-                        <div>～$194,3559.56</div>
-                    </div>
-                    <div class="coinboxx">
-                        <div class="goldvector"><img src="./img/goldvector.png"></div>
-                        <div class="coinimg"><img src="./img/BTC.png"></div>
-                        <div class="goldvector"><img src="./img/goldvector.png"></div>
-                    </div>
-                    <div class="coinboxxx">
-                        <div class="coinimg"><img src="./img/coin02.png"></div>
-                        <div style="margin-left: 1vh;">84%</div>
-                        <div style="font-size: 16px;"><b>840 BTC</b></div>
-                        <div>～$194,3559.56</div>
-                    </div>
-                </div>
-
-                <div class="rateaibox">
-                    <div class="coinbox">
-                        <div class="coinimg"><img src="./img/coinbase.png"></div>
-                        <div style="margin-left: 1vh;">84%</div>
-                        <div style="font-size: 16px;"><b>840 BTC</b></div>
-                        <div>～$194,3559.56</div>
-                    </div>
-                    <div class="coinboxx">
-                        <div class="goldvector"><img src="./img/goldvector.png"></div>
-                        <div class="coinimg"><img src="./img/BTC.png"></div>
-                        <div class="goldvector"><img src="./img/goldvector.png"></div>
-                    </div>
-                    <div class="coinboxxx">
-                        <div class="coinimg"><img src="./img/coinex.png"></div>
-                        <div style="margin-left: 1vh;">84%</div>
-                        <div style="font-size: 16px;"><b>840 BTC</b></div>
-                        <div>～$194,3559.56</div>
-                    </div>
-                </div>
+                
 
             </div>
 
@@ -318,7 +220,7 @@
                 <div class="green">
                     <div><img src="./img/sVector.png"
                             style="width: 8px; height: 4px; object-fit: contain; display: flex;"></div>
-                    <div>5.84%</div>
+                    <div>$${coininfo[0].percen ? parseFloat(coininfo[0].percen) : parseFloat(0)}</div>
                 </div>
             </div>
                     
@@ -330,7 +232,7 @@
                     <div class="rateaibox">
                     <div class="coinbox">
                         <div class="coinimg"><img src="img/${coininfo[i].webname}.png"></div>
-                        <div style="margin-left: 1vh;">${coininfo[i].vol ? parseFloat(coininfo[i].vol).toFixed(2) : parseFloat(0).toFixed(2)}</div>
+                        <div style="margin-left: 1vh;">${coininfo[i].percen ? parseFloat(coininfo[i].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
                         <div style="font-size: 16px;"><b>1 ${coininfo[i].coinname} </b></div>
                         <div> = ${coininfo[i].price ? parseFloat(coininfo[i].price) : parseFloat(0)} </div>
                     </div>
@@ -341,7 +243,7 @@
                     </div>
                     <div class="coinboxxx">
                         <div class="coinimg"><img src="img/${coininfo[i].webname}.png"></div>
-                        <div style="margin-left: 1vh;">${coininfo[i].vol ? parseFloat(coininfo[i].vol).toFixed(2) : parseFloat(0).toFixed(2)}</div>
+                        <div style="margin-left: 1vh;">${coininfo[i].percen ? parseFloat(coininfo[i].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
                         <div style="font-size: 16px;"><b>1 ${coininfo[i].coinname} </b></div>
                         <div>= ${coininfo[i].price ? parseFloat(coininfo[i].price) : parseFloat(0)} </div>
                     </div>

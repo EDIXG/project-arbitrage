@@ -33,12 +33,12 @@ setInterval(() => {
 
 async function getname() {
   bitkub = [];
- coinbase = [];
- binance = [];
- liquid = [];
- tokocrypto = [];
- coinflex = [];
- thbprice = 0;
+  coinbase = [];
+  binance = [];
+  liquid = [];
+  tokocrypto = [];
+  coinflex = [];
+  thbprice = 0;
   globalcoin = [];
   var config = {
     method: "get",
@@ -193,7 +193,7 @@ async function getname() {
       console.log(error);
     });
 
-    findcoin(bitkub, coinbase, binance, liquid, tokocrypto, coinflex);
+  findcoin(bitkub, coinbase, binance, liquid, tokocrypto, coinflex);
 }
 
 async function findcoin(
@@ -322,7 +322,7 @@ setInterval(() => {
 function deleterow7days() {
   db.any(
     `DELETE from compare_coin where currentflag = 0 and insertdate > '7 day'`
-    ) 
+  )
 }
 
 app.post("/api/getcoinname", (req, res) => {
@@ -348,10 +348,10 @@ app.post("/api/getcoinbyname", (req, res) => {
   var coinname = _.get(req, ["body", "coinname"]);
   db.any(
     `SELECT * from compare_coin where currentflag = 1 AND coinname = $1
-  order by compare_coin.price asc ;`,
+    order by compare_coin.price asc ;`,
     [coinname]
   )
-  
+
     .then((data) => {
       return res.status(200).json({
         MESSAGE: "success",

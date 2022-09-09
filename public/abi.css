@@ -39,7 +39,7 @@
     }
 
     .coinbox {
-        width: 33%;
+        width: 30%;
         font-size: 12px;
         display: flex;
         align-items: center;
@@ -47,14 +47,14 @@
     }
 
     .coinboxx {
-        width: 33%;
+        width: 30%;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
 
     .coinboxxx {
-        width: 33%;
+        width: 30%;
         font-size: 12px;
         display: flex;
         align-items: center;
