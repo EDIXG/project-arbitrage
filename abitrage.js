@@ -60,7 +60,7 @@ async function getname() {
           percen: response.data.data[index].percentage,
         });
       }
-      // console.log("bitkub",bitkub)
+      console.log("bitkub",bitkub)
     })
     .catch(function (error) {
       console.log(error);

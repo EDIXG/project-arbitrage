@@ -170,11 +170,12 @@
         })
         var showfav2 = localStorage.getItem('favcoin') ? localStorage.getItem('favcoin').split(',') : []
 
+        var a 
         function getcoininfo() {
 
 
             var coinall = [];
-            -
+          
                 $.ajax({
                     type: 'post',
                     url: 'http://167.99.71.116:3200/api/getcoinbyname',
@@ -191,6 +192,8 @@
                         // console.log(coininfo)
                         var html = ``
                         var html2 = ``
+                        coinall = coinall[0]
+            
                         html += ` 
                     
         <div onclick="prevpage()"
@@ -225,35 +228,41 @@
                 </div>
             </div>
                     
-                    `
+                    ` 
 
-                        for (let i = 0; i < coinall.length; i++) {
-                            for (let j = 0; j < coinall[i].length; j++) {
+                        for (let i = coinall.length; i >=0 ; i--) {
+                          //  for (let j = 0; j < coinall[i].length; j++) {
 
+                          
+                                if(i!=coinall.length){
                                 html2 += `
                     
                     <div class="rateaibox">
                     <div class="coinbox">
-                        <div class="coinimg"><img src="./img/${coinall[i][j].webname}.png"></div>
-                        <div style="margin-left: 1vh;">${coinall[i][j].percen ? parseFloat(coinall[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
-                        <div style="font-size: 16px;"><b>1 ${coinall[i][j].coinname} </b></div>
-                        <div> = ${coinall[i][j].price ? parseFloat(coinall[i][j].price) : parseFloat(0)} </div>
+                        <div class="coinimg"><img src="./img/${coinall[0].webname}.png"></div>
+                        <div style="margin-left: 1vh;">${coinall[0].percen ? parseFloat(coinall[0].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
+                        <div style="font-size: 16px;"><b>1 ${coinall[0].coinname} </b></div>
+                        <div> = ${coinall[0].price ? parseFloat(coinall[0].price) : parseFloat(0)} </div>
                     </div>
+
                     <div class="coinboxx">
                         <div class="goldvector"><img src="./img/goldvector.png"></div>
-                        <div class="coinimg"><img src="./img/${coinall[i][j].coinname}.png"></div>
+                        <div class="coinimg"><img src="./img/${coinall[i].coinname}.png"></div>
+                        <span>${parseFloat(coinall[i].price)-parseFloat(coinall[0].price)}</span>
                         <div class="goldvector"><img src="./img/goldvector.png"></div>
                     </div>
+                    
                     <div class="coinboxxx">
-                        <div class="coinimg"><img src="./img/${coinall[i][j].webname}.png"></div>
-                        <div style="margin-left: 1vh;">${coinall[i][j].percen ? parseFloat(coinall[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
-                        <div style="font-size: 16px;"><b>1 ${coinall[i][j].coinname} </b></div>
-                        <div>= ${coinall[i][j].price ? parseFloat(coinall[i][j].price) : parseFloat(0)} </div>
+                        <div class="coinimg"><img src="./img/${coinall[i].webname}.png"></div>
+                        <div style="margin-left: 1vh;">${coinall[i].percen ? parseFloat(coinall[i].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
+                        <div style="font-size: 16px;"><b>1 ${coinall[i].coinname} </b></div>
+                        <div>= ${coinall[i].price ? parseFloat(coinall[i].price) : parseFloat(0)} </div>
                     </div>
                 </div>
 
                     `
-                            }
+                }
+                          //  }
 
 
 
