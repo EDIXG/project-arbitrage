@@ -4,7 +4,7 @@ const mysql = require("mysql");
 const _ = require("lodash");
 const bodyParser = require("body-parser");
 const pgp = require("pg-promise")(/*options*/);
-const cn = "postgres://postgres:postgres@localhost:5432/abitrage";
+const cn = "postgres://edixg:edixg21@localhost:5432/abitrage";
 const db = pgp(cn);
 const axios = require("axios");
 const path = require("path");
@@ -287,7 +287,7 @@ async function findcoin(
       }
     });
   }
-  console.log(globalcoin.length);
+  // console.log(globalcoin.length);
 
   db.any(`update compare_coin set currentflag = 0 where currentflag = 1 `)
     .then(() => {
