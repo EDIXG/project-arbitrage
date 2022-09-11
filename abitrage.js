@@ -51,16 +51,16 @@ async function getname() {
   };
   await axios(config)
     .then(function (response) {
-      for (let index = 0; index < response.data.data.length; index++) {
+      for (let i = 0; i < response.data.data.length; i++) {
         bitkub.push({
           webname: "bitkub",
-          name: response.data.data[index].currency,
-          price: response.data.data[index].last_price,
-          vol: response.data.data[index].volume,
-          percen: response.data.data[index].percentage,
+          name: response.data.data[i].currency,
+          price: response.data.data[i].last_price,
+          vol: response.data.data[i].volume,
+          percen: response.data.data[i].percentage,
         });
       }
-      console.log("bitkub",bitkub)
+      // console.log("bitkub",bitkub)
     })
     .catch(function (error) {
       console.log(error);
@@ -204,19 +204,9 @@ async function findcoin(
   tokocrypto,
   coinflex
 ) {
+
   globalcoin = [];
-  var btclist = [
-    "BTC",
-    "ETH",
-    "WAN",
-    "XRP",
-    "LTC",
-    "BCH",
-    "USDT",
-    "BNB",
-    "XLM",
-    "SHIB",
-  ];
+  var btclist = ["BTC","ETH","WAN","XRP","LTC","BCH","USDT","BNB","XLM","SHIB",];
   var config = {
     method: "get",
     url: "https://api.exchangerate-api.com/v4/latest/USD",
@@ -224,15 +214,15 @@ async function findcoin(
     data: data,
   };
 
-  axios(config)
+  await axios(config)
     .then(function (response) {
       thbprice = response.data.rates.THB;
 
       for (var i = 0; i < btclist.length; i++) {
+        // console.log("bitkub",bitkub);
         bitkub.find(function (value) {
           if (value.name == btclist[i]) {
             value.price = parseInt(value.price) / thbprice;
-            globalcoin = [];
             globalcoin.push(value);
           }
         });
@@ -281,7 +271,8 @@ async function findcoin(
       }
     });
   }
-  // console.log(globalcoin.length);
+  // console.log("globalcoin",globalcoin);
+ 
 
   db.any(`update compare_coin set currentflag = 0 where currentflag = 1 `)
     .then(() => {
@@ -313,6 +304,12 @@ async function findcoin(
     .catch((error) => {
       console.log(error);
     });
+  // setInterval(() => {
+
+    
+    
+  // }, 60000);
+  
 }
 
 setInterval(() => {
