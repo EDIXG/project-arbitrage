@@ -73,29 +73,29 @@
             border-radius: 16px;
         }
 
-        .fa-heart {
+        .fa-star {
             /* position: absolute;
   top: 50%;
   left: 50%; */
             transform: translate(-50%);
             font-size: 20px;
-            color: #ff8484;
+            color: #F4A100;
             transition: 1s;
         }
 
-        .background-heart::after {
+        .background-star::after {
             font-family: "Font Awesome 5 Free";
             font-weight: 900;
-            content: "\f004";
+            content: "\f005";
             transform: translate(-50%);
             font-size: 20px;
-            color: red;
+            color: #F4A100;
             transition: 1s;
             z-index: -1;
             animation: fill-heart 1s;
         }
 
-        .background-heart::before {
+        .background-star::before {
             content: "";
 
             position: absolute;
@@ -206,7 +206,7 @@
             <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 5.1vh;">
                 <img src="./img/${coininfo[0].coinname}.png" style="width: 40px; height: 41px;">
                 <div onclick="clicktofav('${coininfo[0].coinname}','${'favbutton' + coininfo[0].coinname.toLocaleLowerCase()}')">
-            <i id="${'favbutton' + coininfo[0].coinname.toLocaleLowerCase()}" class="far fa-heart"></i>
+            <i id="${'favbutton' + coininfo[0].coinname.toLocaleLowerCase()}" class="far fa-star"></i>
           </div>
             </div>
             <div style="width: 100%; overflow: scroll;">
@@ -283,7 +283,7 @@
                             for (let i = 0; i < showfav2.length; i++) {
                                 // console.log(showfav2[k].toLocaleLowerCase())
                                 // console.log("")
-                                $('#favbutton' + showfav2[i].toLocaleLowerCase()).addClass("background-heart");
+                                $('#favbutton' + showfav2[i].toLocaleLowerCase()).addClass("background-star");
 
                             }
 
@@ -333,8 +333,8 @@
             }
         }
 
-        $(".fa-heart").click(function () {
-            $(this).toggleClass("background-heart");
+        $(".fa-star").click(function () {
+            $(this).toggleClass("background-star");
         });
 
 
