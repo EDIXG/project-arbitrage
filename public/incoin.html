@@ -22,7 +22,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./abi.css">
+    <link rel="stylesheet" href="./css/abi.css">
 
     <!-- <link href="https://fonts.cdnfonts.com/css/circular-std-book" rel="stylesheet"> -->
     <!-- sweetalert2 -->
@@ -187,11 +187,12 @@
 
                         var coininfo = response.result
                         coinall.push(coininfo)
-                        console.log("coinall", coinall)
+                        // console.log("coinall", coinall)
                         $('#cointitle').text(coininfo[0].coinname)
                         // console.log(coininfo)
                         var html = ``
                         var html2 = ``
+                        
                         coinall = coinall[0]
             
                         html += ` 
@@ -232,9 +233,10 @@
 
                         for (let i = coinall.length; i >=0 ; i--) {
                           //  for (let j = 0; j < coinall[i].length; j++) {
-
+                                
                           
                                 if(i!=coinall.length){
+                                    
                                 html2 += `
                     
                     <div class="rateaibox">
@@ -242,13 +244,13 @@
                         <div class="coinimg"><img src="./img/${coinall[0].webname}.png"></div>
                         <div style="margin-left: 1vh;">${coinall[0].percen ? parseFloat(coinall[0].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
                         <div style="font-size: 16px;"><b>1 ${coinall[0].coinname} </b></div>
-                        <div> = ${coinall[0].price ? parseFloat(coinall[0].price) : parseFloat(0)} </div>
+                        <div> = ${coinall[0].price ? parseFloat(coinall[0].price).toFixed(2) : parseFloat(0).toFixed(2)} </div>
                     </div>
 
                     <div class="coinboxx">
                         <div class="goldvector"><img src="./img/goldvector.png"></div>
                         <div class="coinimg"><img src="./img/${coinall[i].coinname}.png"></div>
-                        <span>${parseFloat(coinall[i].price)-parseFloat(coinall[0].price)}</span>
+                        <span id="profitrate">${parseFloat(coinall[i].price).toFixed(2) - parseFloat(coinall[0].price).toFixed(2)}</span>
                         <div class="goldvector"><img src="./img/goldvector.png"></div>
                     </div>
                     
@@ -261,12 +263,16 @@
                 </div>
 
                     `
+                    
                 }
                           //  }
 
 
-
+                        
                         }
+                        
+                       
+                        
                         $('#coindown').html(html2)
                         $('#coinnameup').html(html)
                         if (localStorage.getItem('favcoin') && localStorage.getItem('favcoin') != '') {

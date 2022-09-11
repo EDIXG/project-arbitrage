@@ -154,6 +154,22 @@
 
 </head>
 
+<script>
+  $.get("./header.html", function (data) {
+      $("#header").html(data);
+  }).then(() => {
+      $.get("./sidemenu.html", function (data) {
+          $("#mySidenav-menu").html(data);
+      });
+  })
+  // $.get("./sidemenu.html", function (data) {
+  //     $("#mySidenav-menu").html(data);
+  // });
+</script>
+<div id="header">
+
+</div>
+
 <body style="overflow: hidden;">
 
   <section id="ssss">
