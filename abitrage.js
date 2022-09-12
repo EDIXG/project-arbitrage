@@ -299,7 +299,7 @@ async function findcoin(
             });
         }
       }
-      // console.log("globalcoin.length", globalcoin.length);
+      console.log("globalcoin.length", globalcoin.length);
     })
     .catch((error) => {
       console.log(error);
