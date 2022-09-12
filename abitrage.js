@@ -354,7 +354,7 @@ app.post("/api/getcoinbyname", (req, res) => {
         MESSAGE: "success",
         ms: "good",
         CODE: "200",
-        result: data && data[0] ? data : [],
+        result: data[0] ? data : [],
       });
     })
     .catch((error) => {
