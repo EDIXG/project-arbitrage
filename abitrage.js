@@ -419,7 +419,7 @@ app.post("/api/contactus", (req, res) => {
   if (name <= 0) {
     return res.status(200).json({
       ms: "bad",
-      MESSAGE: "Add coin fail",
+      MESSAGE: "Please Fill name",
       CODE: "400",
     });
   }

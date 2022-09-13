@@ -8,6 +8,9 @@
     <title>Contact Us</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
 </head>
 
 <style>
@@ -90,17 +93,48 @@
         <div class="headname">CONTACT US</div>
         <div style="margin-top: 5vh;">
             <div class="head123">NAME</div>
-            <input class="box1" placeholder="NAME"></input>
+            <input id="name" class="box1" placeholder="NAME"></input>
             <div class="head123">EMAIL</div>
-            <input class="box1" placeholder="EMAIL"></input>
+            <input id="email" class="box1" placeholder="EMAIL"></input>
             <div class="head123">MASSAGE</div>
-            <textarea class="box2" placeholder="MASSAGE"></textarea>
+            <textarea id="massage" class="box2" placeholder="MASSAGE"></textarea>
         </div>
-        <div class="posisend">
+        <div onclick="getcontact()" class="posisend">
             <div class="sendbtn">SEND</div>
         </div>
     </section>
+    <script>
+        function getcontact() {
 
+            $.ajax({
+            type: 'post',
+            url: 'http://167.99.71.116:3200/api/contactus',
+            data: {
+                name: $('#name').val(),
+                email: $('#email').val(),
+                massage: $('#massage').val()
+            },
+            success: function (response) {
+                if (response.ms == 'good') {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Your information has been save",
+                    }).then(() => {
+                        window.location.reload()
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: response.MESSAGE,
+                    });
+                }
+
+            }
+        })
+            
+        }
+        
+    </script>
 </body>
 
 </html>
