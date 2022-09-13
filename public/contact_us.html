@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+</head>
+
+<style>
+    .headname {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFFFFF;
+        margin-top: 1vw;
+    }
+
+    .background {
+        background-color: #020517;
+        height: 100vh;
+        padding: 2vh;
+    }
+
+    .box1 {
+        padding: 10px;
+        width: 100%;
+        background: #1F212E;
+        border-radius: 6vw;
+        color: #FFFFFF;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        border: none;
+        margin-top: 1vh;
+    }
+
+    .box2 {
+        padding: 10px;
+        width: 100%;
+        height: 25vh;
+        background: #1F212E;
+        border-radius: 6vw;
+        border: none;
+        color: #FFFFFF;
+        margin-top: 1vh;
+    }
+
+    .sendbtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1vw 7vw;
+        background: #3071e7;
+        border-radius: 6vw;
+        color: #FFFFFF;
+        width: 23%;
+    }
+
+    .posisend {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1vh;
+    }
+
+    .head123 {
+        color: #FFFFFF;
+        margin-top: 1vh;
+    }
+</style>
+
+<script>
+    $.get("./header.html", function (data) {
+        $("#header").html(data);
+    }).then(() => {
+        $.get("./sidemenu.html", function (data) {
+            $("#mySidenav-menu").html(data);
+        });
+    })
+</script>
+
+<div id="header">
+
+</div>
+
+<body>
+
+    <section class="background">
+        <div class="headname">CONTACT US</div>
+        <div style="margin-top: 5vh;">
+            <div class="head123">NAME</div>
+            <input class="box1" placeholder="NAME"></input>
+            <div class="head123">EMAIL</div>
+            <input class="box1" placeholder="EMAIL"></input>
+            <div class="head123">MASSAGE</div>
+            <input class="box2" placeholder="MASSAGE"></input>
+        </div>
+        <div class="posisend">
+            <div class="sendbtn">SEND</div>
+        </div>
+    </section>
+
+</body>
+
+</html>
