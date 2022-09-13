@@ -232,7 +232,7 @@
                     
                     `
             
-                    for (let i = coinall.length ; i >= 0; i--) {
+                    for (let i = coinall.length ; i >= 1 ; i--) {
                         //  for (let j = 0; j < coinall[i].length; j++) {
                         // console.log("coinall.length",coinall.length);
                         // console.log("coinall",coinall);
@@ -252,10 +252,10 @@
                         <div class="goldvector"><img src="./img/goldvector.png"></div>
                         <div class="coinimg"><img src="./img/${coinall[i].coinname}.png"></div>
                         <div class="goldvector"><img src="./img/goldvector.png"></div>
+                        
                     </div>
-                    <div>
-                        <span id="profitrate">$${(parseFloat(coinall[i].price)-parseFloat(coinall[0].price)).toFixed(2)}</span>
-                        </div>
+                    
+                    
                     
                     <div class="coinboxxx">
                         <div class="coinimg"><img src="./img/${coinall[i].webname}.png"></div>
@@ -264,6 +264,11 @@
                         <div>= ${coinall[i].price ? parseFloat(coinall[i].price).toFixed(2) : parseFloat(0).toFixed(2)} </div>
                     </div>
                 </div>
+
+                <div class="profitc">
+                    <img src="./img/profit.png" style="width: 10%;">
+                    <span id="profitrate">$${(parseFloat(coinall[i].price)-parseFloat(coinall[0].price)).toFixed(2)}</span>
+                    </div>
 
                     `
 

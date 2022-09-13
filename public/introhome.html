@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,27 +7,19 @@
   <title>All coin</title>
   <!-- <script src="./js/index.js"></script> -->
   <!-- <script src="./js/index_mobile.js"></script> -->
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
-    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap" rel="stylesheet"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- <link href="https://fonts.cdnfonts.com/css/circular-std-book" rel="stylesheet"> -->
   <!-- sweetalert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+  <link rel="shortcut icon" href="#">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -725,7 +716,7 @@
               <div style="font-size: 12px;display: flex;
                   justify-content: flex-start">
                 <span>vol :</span>
-                <span id="${'volof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">${all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol).toFixed(2) : parseFloat(0).toFixed(2)}</span>
+                <span id="${'volof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">${all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol/1000).toFixed(2)+"k" : parseFloat(0).toFixed(2)}</span>
               </div>
               <div style="font-size: 12px;">
                 <span id="${'percenof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">${all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2):parseFloat(0).toFixed(2)}</span>

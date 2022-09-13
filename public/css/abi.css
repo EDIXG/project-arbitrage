@@ -79,3 +79,8 @@
         display: flex; 
         justify-content: space-between;
     }
+    .profitc{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
