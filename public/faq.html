@@ -62,18 +62,28 @@
     }
 </style>
 
+<script>
+    $.get("./header.html", function (data) {
+        $("#header").html(data);
+    }).then(() => {
+        $.get("./sidemenu.html", function (data) {
+            $("#mySidenav-menu").html(data);
+        });
+    })
+    // $.get("./sidemenu.html", function (data) {
+    //     $("#mySidenav-menu").html(data);
+    // });
+  </script>
+  <div id="header">
+  
+  </div>
+
 <body>
     <div style="background-color: #020517 ; padding: 2vh; height: 100vh;">
 
         <div style="width:100% ; display: flex; justify-content: space-around;align-items: center; ">
-            <div style="width:33%;" onclick="window.open('./introhome.html','_self')">
-                <img src="/img/Vector (4).png" alt="" style="width:20%;">
-            </div>
             <div style="width:33%;color:#FFFFFF;display: flex;justify-content: center;  ">
                 FAQ
-            </div>
-            <div style="width:33%; display: flex; justify-content: end; ">
-                <img src="/img/11.png" alt="" style="width:20%;">
             </div>
         </div>
 
