@@ -413,10 +413,10 @@ app.post("/api/insertcoinprice", (req, res) => {
 app.post("/api/contactus", (req, res) => {
   var name = _.get(req, ["body", "name"]);
   var email = _.get(req, ["body", "email"]);
-  var massage = _.get(req, ["body", "massge"]);
+  var massage = _.get(req, ["body", "massage"]);
   
 
-  if (coinname <= 0) {
+  if (name <= 0) {
     return res.status(200).json({
       ms: "bad",
       MESSAGE: "Add coin fail",
@@ -424,7 +424,7 @@ app.post("/api/contactus", (req, res) => {
     });
   }
 
-  if (coinname != null) {
+  if (name != null) {
     db.any(
       ` insert into contactus (name, email, massage) values ($1,$2,$3) `,
       [name, email, massage]
