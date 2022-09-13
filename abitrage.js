@@ -423,8 +423,16 @@ app.post("/api/contactus", (req, res) => {
       CODE: "400",
     });
   }
+  if(email.length <= 0){
+    return res.status(200).json({
+      ms: "bad",
+      MESSAGE: "Email incorrect",
+      CODE: "400"
+    });
+  }
 
-  if (name != null) {
+  if (email && email.indexOf('@') >= 0 && email.indexOf('.') >= 0) {
+    email = email.toLowerCase();
     db.any(
       ` insert into contactus (name, email, massage) values ($1,$2,$3) `,
       [name, email, massage]
