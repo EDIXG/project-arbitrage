@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,63 +8,75 @@
     <title></title>
     <link rel="stylesheet" href="./css/sidenav.css">
     <!-- sweetalert2 -->
-    
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<style>
-    .swal2-container {
-        z-index:  10000000;
-    }
-</style>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .swal2-container {
+            z-index: 10000000;
+        }
+    </style>
 </head>
+
 <body>
     <div id="signinside" style="padding: 15px 15px;">
         <!-- <p style="white-space: nowrap; margin-bottom: 15px;">My account</p> -->
-        <div>
+        <div style="display:flex; justify-content:center;">
+            <img style="width: 30%; " src="./img/logo.png" alt="">
+        </div>
+        <div style="padding-top: 20px; display:flex; flex-direction:column;">
             <span onclick="window.location.replace('./introhome.html');">Home</span>
             <span style="color: #adadad;">FAQ(Soon)</span>
-            <span onclick="window.location.replace('./contact_us.html');">Contact us</span>
+            <div style="display:flex; flex-direction: row; align-items:center;">
+                <img style="width:15% ;" src="./img/contact-us.png" alt="">
+                <span style="padding-left: 20px;" onclick="window.location.replace('./contact_us.html');">Contact
+                    us</span>
+            </div>
+
+
             <!-- <span onclick="window.location.replace('./find_cafe.html');">Travel directory</span> -->
         </div>
         <!-- <div>
             <hr style=" border: 1px solid rgb(101 103 107 / 20%); margin: 8px 0px;">
         </div> -->
         <div>
-            <div style="margin-top: 4vh; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-                
-            </div> 
-           
-    </div>
+            <div
+                style="margin-top: 4vh; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
 
-
-    
-
+            </div>
 
         </div>
-      
+
+
+
+
+
+    </div>
+
     </div>
 </body>
+
 </html>
 <script>
-    
 
-    
 
-   
-    function sorry_side(){
+
+
+
+    function sorry_side() {
         // location.reload()
-        Swal.fire({ 
+        Swal.fire({
             title: 'Sorry ',
             text: 'Function  is not supported.',
             imageUrl: '../img/Under_construction.png',
             imageWidth: 300,
             imageHeight: 300,
             imageAlt: 'Custom image',
-        }).then((result)=>{
+        }).then((result) => {
             if (result.isConfirmed) {
                 location.reload()
             }
         })
-  }
+    }
 
-  
+
 </script>
