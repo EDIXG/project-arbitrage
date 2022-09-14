@@ -206,7 +206,7 @@ async function findcoin(
 ) {
 
   globalcoin = [];
-  var btclist = ["BTC","ETH","WAN","XRP","LTC","BCH","USDT","BNB","XLM","SHIB",];
+  var btclist = ["BTC","ETH","WAN","XRP","LTC","BCH","USDT","BNB","XLM","SHIB"];
   var config = {
     method: "get",
     url: "https://api.exchangerate-api.com/v4/latest/USD",
