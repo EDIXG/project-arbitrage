@@ -47,7 +47,7 @@
     display: block;
     transition: 0.3s;
     white-space: nowrap !important;
-    color: white;
+    color: black;
 }
 
 .sidenav-menu span:hover {
@@ -79,7 +79,7 @@
             top: 0 !important;
             right: 0 !important;
             left: unset !important;
-            background-color: #020517 !important;
+            background-color: white !important;
 }
 
 .sidenav-up {
