@@ -14,33 +14,33 @@
     .box1 {
         padding: 10px;
         width: 100%;
-        background: #1F212E;
+        background: #FFFFFF;
         border-radius: 6vw;
-        color: #FFFFFF;
+        color: black;
         position: relative;
         display: flex;
         justify-content: space-between;
+        border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
-    .box {
+    .box0 {
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 1vw 7vw;
         height: 10%;
-        background: #1F212E;
+        background: #FFFFFF;
         border-radius: 6vw;
-        color: #FFFFFF;
+        color: black;
         margin-left: 3vw;
+        border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .h1 {
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 16px;
         line-height: 24px;
-        color: #FFFFFF;
+        color: black;
     }
 
     .hhh {
@@ -55,6 +55,12 @@
     .arrow {
         width: 5%;
         object-fit: contain;
+    }
+
+    .arrow1 {
+        width: 5%;
+        object-fit: contain;
+        display: none;
     }
 
     .rotate {
@@ -79,32 +85,33 @@
   </div>
 
 <body>
-    <div style="background-color: #020517 ; padding: 2vh; height: 100vh;">
+    <div style="background-color: #FFFFFF ; padding: 2vh; height: 100vh;">
 
         <div style="width:100% ; display: flex; justify-content: space-around;align-items: center; ">
-            <div style="width:33%;color:#FFFFFF;display: flex;justify-content: center;  ">
+            <div style="width:33%;color:black;display: flex;justify-content: center; font-size: 18px; font-weight: 700;">
                 FAQ
             </div>
         </div>
 
         <div style="display:flex ; justify-content: space-between;padding-top: 10vw; overflow: scroll;">
-            <div class="box" style="margin-left: 0;" id="color1" onclick="change1(1)">All</div>
-            <div class="box" id="color2" onclick="change(2)">All</div>
-            <div class="box" id="color3" onclick="change(3)">All</div>
-            <div class="box">All</div>
-            <div class="box">All</div>
-            <div class="box">All</div>
-            <div class="box">All</div>
+            <div class="box0" style="margin-left: 0;" id="color1" onclick="change1(1)">All</div>
+            <div class="box0" id="color2" onclick="change(2)">Lorem</div>
+            <div class="box0" id="color3" onclick="change(3)">Lorem</div>
+            <div class="box0">Lorem</div>
+            <div class="box0">Lorem</div>
+            <div class="box0">Lorem</div>
+            <div class="box0">Lorem</div>
         </div>
 
-        <div class="h1" style="width:100%; padding-top:2vw ;">
+        <div class="h1" style="width:100%; padding-top:5vw ;">
             All
         </div>
 
         <div style="padding-top: 3vh;">
             <div id="drop" class="box1" onclick="test()">
-                <span>jhbhbjb</span>
-                <img src="./img/downarrow.png" class="arrow" id="arr1">
+                <span>Lorem ipsum dolor sit amet</span>
+                <img src="./img/blackarrow.png" class="arrow" id="arr1">
+                <img src="./img/uparrow.png" class="arrow1" id="ar1">
             </div>
             <div id="hide" class="hhh">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ad quo, facere minima illo corrupti sint
@@ -114,33 +121,33 @@
         </div>
 
         <div style="padding-top: 1vh;">
-            <div class="box1">
-                <span>jhbhbjb</span>
-                <img src="./img/downarrow.png" class="arrow" id="arr2">
+            <div class="box1" id="boxx1">
+                <span>Lorem ipsum dolor sit amet</span>
+                <img src="./img/blackarrow.png" class="arrow" id="arr2">
             </div>
         </div>
         <div style="padding-top: 1vh;">
             <div class="box1">
-                <span>jhbhbjb</span>
-                <img src="./img/downarrow.png" class="arrow">
+                <span>Lorem ipsum dolor sit amet</span>
+                <img src="./img/blackarrow.png" class="arrow">
             </div>
         </div>
         <div style="padding-top: 1vh;">
             <div class="box1">
-                <span>jhbhbjb</span>
-                <img src="./img/downarrow.png" class="arrow">
+                <span>Lorem ipsum dolor sit amet</span>
+                <img src="./img/blackarrow.png" class="arrow">
             </div>
         </div>
         <div style="padding-top: 1vh;">
             <div class="box1">
-                <span>jhbhbjb</span>
-                <img src="./img/downarrow.png" class="arrow">
+                <span>Lorem ipsum dolor sit amet</span>
+                <img src="./img/blackarrow.png" class="arrow">
             </div>
         </div>
         <div style="padding-top: 1vh;">
             <div class="box1">
-                <span>jhbhbjb</span>
-                <img src="./img/downarrow.png" class="arrow">
+                <span>Lorem ipsum dolor sit amet</span>
+                <img src="./img/blackarrow.png" class="arrow">
             </div>
         </div>
 </body>
@@ -163,10 +170,18 @@
         $(`#drop`).removeClass('show')
         $("#hide").slideUp('fast');
         $(`#arr1`).css({'transform':'rotate(360deg)'})
+        $(`#drop`).css('background-color','')
+        $(`#drop`).css('color','')
+        $(`#ar1`).css('display','')
+        $(`#arr1`).css('display','block')
       } else {
         $(`#drop`).addClass('show')
         $("#hide").slideDown('fast');
         $(`#arr1`).css({'transform':'rotate(180deg)'})
+        $(`#drop`).css('background-color','#5DA0FF')
+        $(`#drop`).css('color','#FFFFFF')
+        $(`#ar1`).css('display','block')
+        $(`#arr1`).css('display','none')
       }
     }
 
