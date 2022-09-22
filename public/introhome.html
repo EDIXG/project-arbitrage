@@ -304,6 +304,16 @@
 
     <script>
 
+    // var checkread = localStorage.getItem('already') ? localStorage.getItem('already') : []
+        $(document).ready(function () {
+            
+            if(localStorage.getItem('already') && localStorage.getItem('already') !=''){
+                window.location.href = "./introhome2.html"
+            }
+
+
+    })
+
         const swiper = new Swiper('.swiper', {
             // Optional parameters
             direction: 'horizontal',
@@ -311,7 +321,7 @@
         });
 
         function nextpage() {
-
+            localStorage.setItem('already',1)
             window.location.href = "./introhome2.html"
 
         }
