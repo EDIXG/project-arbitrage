@@ -733,7 +733,23 @@
 
           }
       
+          changecolor()
+    }
 
+    function changecolor() {
+      for (let i = 0; i < all_lowest_coin.length; i++) {
+        for (let j = 0; j < all_lowest_coin[i].length; j++) {
+          if(all_lowest_coin[i][j].percen < 0){
+            $('#percenof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()).css('color','red')
+            
+          }else{
+            $('#percenof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()).css('color','green')
+          }
+          
+        }
+        
+        
+      }
     }
 
    
