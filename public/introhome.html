@@ -204,14 +204,16 @@
 
         <div class="swiper-wrapper">
             <!-- page 1 -->
-            <div class="swiper-slide" style="background-color: red; position: relative;">
-                <div style="width: 100%; height:30%; display: flex; flex-direction: column; align-items: center; margin-top: 22%;">
+            <div class="swiper-slide" style="position: relative;">
+                <div
+                    style="width: 100%; height:30%; display: flex; flex-direction: column; align-items: center; margin-top: 22%;">
                     <div
                         style="display: flex; flex-direction:column; justify-content: end; width: 100%; align-items:flex-end; padding-right: 20px;">
                         <span style="font-size: 24px;">Track</span>
                         <span>Track all your crypto in one place.</span>
                     </div>
-                    <div style="width: 100%; display: flex; justify-content: end; padding-top: 20px; padding-right: 20px;">
+                    <div
+                        style="width: 100%; display: flex; justify-content: end; padding-top: 20px; padding-right: 20px;">
                         <img style="width:20%;" src="../img/page1.png" alt="">
                     </div>
                 </div>
@@ -219,14 +221,14 @@
                 <div style="display: flex; position: absolute; top: 30%; width: 100%; height: 70%;">
 
                     <div style="display: flex; width: 100%; height: 100%;">
-                        
-                        <img src="./img/intropage1.png" >
+
+                        <img src="./img/intropage1.png">
                         <img src="./img/Intropage1-1.png" style="z-index: 1; position: absolute;">
-                        <img src="./img/intropage1-2.png" style="z-index: 2; position:absolute;" >
+                        <img src="./img/intropage1-2.png" style="z-index: 2; position:absolute;">
                         <!-- <img src="../img/Ellipse 15.png" style="z-index: -1; width:100%; position: absolute;">
                         <img src="../img/Vector 18.png" style="z-index: 1; width: 100%; position:absolute;">
                         <img id="holdcoinimg" src="../img/manholdcoin.png" style="z-index: 2; width: 71%;position:absolute"> -->
-                        
+
 
                     </div>
 
@@ -236,9 +238,9 @@
 
             </div>
             <!-- page 2 -->
-            <div class="swiper-slide" style="width: 100%; height: 100vh;">
+            <div class="swiper-slide" style="position: relative;">
                 <div
-                    style="width: 100%; height:20%; display: flex; flex-direction: column; align-items: center; margin-top: 22%;">
+                    style="width: 100%; height:30%; display: flex; flex-direction: column; align-items: center; margin-top: 22%;">
                     <div
                         style="display: flex; flex-direction:column; justify-content: end; width: 100%; align-items:flex-end; padding-right: 20px;">
                         <span style="font-size: 24px;">Updates</span>
@@ -251,20 +253,16 @@
                     </div>
                 </div>
 
-                <div style="display: flex; position: relative; height: 80%; width: 100%;">
-                    <div style="display: flex; position: relative; height: 83%; width: 100%;">
-                        <img src="../img/Ellipse 15.png" style="z-index: -1; width:100%; position: absolute;">
-                        <img src="../img/Vector19.png" style="z-index: 1; width: 100%; bottom: 0; position:absolute;">
-                        <img src="../img/boy_com.png" style="z-index: 2; width: 71%; right: 0; position:absolute;">
-                        <img src="../img/Ellipse20.png"
-                            style="z-index: 1; width: 100%; bottom: 126px; position:absolute;">
+                <div style="display: flex; position: relative; top: 30%; height: 70%; width: 100%; position: absolute;">
+                    <div style="display: flex;  height: 100%; width: 100%;">
+                        <img src="./img/intropage2.png">
                     </div>
                 </div>
 
             </div>
 
             <!-- page 3 -->
-            <div class="swiper-slide" style="width: 100%; height: 100vh;">
+            <div class="swiper-slide" style="position: relative;">
                 <div
                     style="width: 100%; height:20%; display: flex; flex-direction: column; align-items: center; margin-top:22%;">
                     <div
@@ -278,22 +276,18 @@
 
                     </div>
                     <div onclick="nextpage()"
-                        style="width: 100%; display: flex; justify-content: end; padding-top: 20px; padding-right: 20px; ">
+                        style="width: 100%; height: 5vh; display: flex; justify-content: end; padding-top: 20px; padding-right: 20px; ">
                         <div
-                            style="width: 30%; height: 5vh; display: flex; align-items: center; border: 1px solid #3071E7; background-color: #3071E7; border-radius: 99px;">
+                            style="width: 30%; height: 100%;  display: flex; align-items: center; border: 1px solid #3071E7; background-color: #3071E7; border-radius: 99px;">
                             <span style="padding: 20px; color: white;">Get start</span>
                         </div>
 
                     </div>
                 </div>
 
-                <div style="display: flex; position: relative; height: 80%; width: 100%;">
-                    <div style="display: flex; position: relative; height: 83%; width: 100%;">
-                        <img src="../img/Ellipsecenter.png"
-                            style="z-index: -3; width:100%; bottom: 0; position: absolute;">
-                        <img src="../img/Vectorleft.png" style="z-index: -2; width: 60%; bottom: 0; position:absolute;">
-                        <img src="../img/boy_stock.png"
-                            style="z-index: -1; width: 90%; bottom: 0; right: 0; position:absolute;">
+                <div style="display: flex; position: absolute; top: 30%; height: 80%; width: 100%;">
+                    <div style="display: flex; height: 100%; width: 100%;">
+                        <img src="./img/intropage3.png">
                     </div>
                 </div>
 
@@ -307,15 +301,15 @@
 
     <script>
 
-    // var checkread = localStorage.getItem('already') ? localStorage.getItem('already') : []
-    //     $(document).ready(function () {
-            
-    //         if(localStorage.getItem('already') && localStorage.getItem('already') !=''){
-    //             window.location.href = "./introhome2.html"
-    //         }
+        // var checkread = localStorage.getItem('already') ? localStorage.getItem('already') : []
+        //     $(document).ready(function () {
+
+        //         if(localStorage.getItem('already') && localStorage.getItem('already') !=''){
+        //             window.location.href = "./introhome2.html"
+        //         }
 
 
-    // })
+        // })
 
         const swiper = new Swiper('.swiper', {
             // Optional parameters
@@ -324,7 +318,7 @@
         });
 
         function nextpage() {
-            localStorage.setItem('already',1)
+            localStorage.setItem('already', 1)
             window.location.href = "./introhome2.html"
 
         }
@@ -356,7 +350,7 @@
         // images[0] = "../img/manholdeth.png";
         // images[1] = "../img/manholdcoin.png";
         // setTimeout(changeImage(), 30000);
-        
+
     </script>
 </body>
 
