@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All coin</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> -->
+<meta name="viewport" content="width=device-width,height=device-height,minimum-scale=1,maximum-scale=1" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+<!-- sweetalert2 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<!-- siwper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
+
+<link rel="shortcut icon" href="#">
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.3vh !important;
+        color: black !important;
+    }
+
+    .btnslide {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 20px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        color: white;
+        width: 31%;
+        margin-top: -13vh;
+    }
+
+    .btnslide2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 20px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        color: white;
+        width: 31%;
+        margin-top: -7vh;
+    }
+
+    .center3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .center33 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: wrap;
+    }
+
+    .img1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        object-fit: contain;
+        padding-top: 15vh;
+        width: 100%;
+    }
+
+    .line {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 10px 16px 10px;
+    }
+
+    .container {
+        height: 76vh;
+        /* overflow: scroll; */
+    }
+
+    .s1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 20px;
+        width: 80%;
+        height: 8vw;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 4vw;
+    }
+
+    .fa-star {
+        /* position: absolute;
+    top: 50%;
+    left: 50%; */
+        transform: translate(-50%);
+        font-size: 20px;
+        color: #F4A100;
+        transition: 1s;
+    }
+
+    .background-star::after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f005";
+        transform: translate(-50%);
+        font-size: 20px;
+        color: #F4A100;
+        transition: 1s;
+        z-index: -1;
+        animation: fill-heart 1s;
+    }
+
+    .background-star::before {
+        content: "";
+
+        position: absolute;
+
+        transform: translate(-50%);
+        z-index: -1;
+        border-radius: 200px;
+        animation: circle-expand 1s;
+    }
+
+    @keyframes fill-heart {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .holdcoin {
+        width: 71%;
+        transition: 2s;
+        z-index: 2;
+        background-image: url(../img/manholdcoin.png);
+        animation-name: animate;
+        animation-direction: alternate-reverse;
+        animation-play-state: running;
+        animation-timing-function: ease-in-out;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes animtae {
+        0% {
+            background-image: url('../img/manholdeth.png');
+        }
+
+        20% {
+            background-image: url('../img/manholdcoin.png');
+        }
+
+        40% {
+            background-image: url('../img/manholdeth.png');
+        }
+
+        60% {
+            background-image: url('../img/manholdcoin.png');
+        }
+
+        80% {
+            background-image: url('../img/manholdeth.png');
+        }
+
+        100% {
+            background-image: url('../img/manholdcoin.png');
+        }
+
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="swiper">
+
+        <div class="swiper-wrapper">
+            <!-- page 1 -->
+            <div class="swiper-slide" style="background-color: white; position: relative;">
+
+                <div style="width: 100%; height:30%; display: flex; flex-direction: column; align-items: center; margin-top: 20%;">
+                    <div style="display: flex; flex-direction:column; justify-content: end; width: 100%; align-items:flex-end; padding-right: 20px;">
+                        <span style="font-size: 24px;"><b>Track</b></span>
+                        <span>Track all your crypto in one place.</span>
+                    </div>
+                    <div style="width: 100%; display: flex; justify-content: end; padding-top: 20px; padding-right: 20px;">
+                        <img style="width:20%;" src="../img/page1.png" alt="">
+                    </div>
+                </div>
+
+                <div style="display: flex; position: absolute; top: 30%; width: 100%; height: 70%;">
+                    <div style="display: flex; width: 100%;">
+                        <img src="./img/intropage1.png" style="width: 100%;">
+                        <img src="./img/Intropage1-1.png" style="z-index: 1; position: absolute;width: 100%;height:-webkit-fill-available;">
+                        <img src="./img/intropage1-2.png" style="z-index: 2; position:absolute;width: 100%;height:-webkit-fill-available;">
+                    </div>
+                </div>
+
+            </div>
+            <!-- page 2 -->
+            <div class="swiper-slide" style="width: 100%; height: 100vh;">
+
+                <div style="width: 100%; height:20%; display: flex; flex-direction: column; align-items: center; margin-top: 20%;">
+                    <div style="display: flex; flex-direction:column; justify-content: end; width: 100%; align-items:flex-end; padding-right: 20px;">
+                        <span style="font-size: 24px;"><b>Updates</b></span>
+                        <span>Real-time price updates</span>
+                    </div>
+                    <div style="width: 100%; display: flex; justify-content: end; padding-top: 20px; padding-right: 20px;">
+                        <img style="width:20%;" src="../img/page2.png">
+                    </div>
+                </div>
+
+                <div style="display: flex; position: relative; height: 86%; width: 100%;">
+                    <div style="display: flex; position: relative; height: 83%; width: 100%;">
+                        <img src="../img/Ellipse 15.png" style="z-index: -1; width:100%; position: absolute; height: inherit; bottom: 3%;">
+                        <img src="../img/Vector19.png" style="z-index: 1; width: 100%; bottom: 0; position:absolute;">
+                        <img src="../img/boy_com.png" style="z-index: 2; width: 75%; right: 0; position:absolute; height: inherit;">
+                        <img src="../img/Ellipse20.png" style="z-index: 1; width: 83%; bottom: 17%;right: 7%; position:absolute;">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- page 3 -->
+            <div class="swiper-slide" style="width: 100%; height: 100vh;">
+
+                <div style="width: 100%; height:20%; display: flex; flex-direction: column; align-items: center; margin-top:20%;">
+                    <div
+                        style="display: flex; flex-direction:column; justify-content: end; width: 100%; align-items:flex-end; padding-right: 20px;">
+                        <span style="font-size: 24px;"><b>Easy to use</b></span>
+                        <span>No complicated graphs</span>
+                    </div>
+                    <div style="width: 100%; display: flex; justify-content: end; padding-top: 20px; padding-right: 20px;">
+                        <img style="width:20%;" src="../img/page3.png">
+                    </div>
+                    <div onclick="nextpage()"
+                        style="width: 100%; display: flex; justify-content: end; padding-top: 20px; padding-right: 20px; ">
+                        <div style="height: 5vh; display: flex; align-items: center; border: 1px solid #3071E7; background-color: #3071E7; border-radius: 99px;">
+                            <span style="padding: 20px; color: white;">Get start</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; position: relative; height: 80%; width: 100%;">
+                    <div style="display: flex; position: relative; height: 89%; width: 100%;">
+                        <img src="../img/Ellipsecenter.png" style="z-index: -3; width:100%; bottom: -17%; position: absolute; height: inherit;">
+                        <img src="../img/Vectorleft.png" style="z-index: -2; width: 60%; bottom: -20%; position:absolute; height: inherit;">
+                        <img src="../img/boy_stock.png" style="z-index: -1; width: 90%; bottom: 0; right: 3%; position:absolute; height: -webkit-fill-available;">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+
+    // var checkread = localStorage.getItem('already') ? localStorage.getItem('already') : []
+    //     $(document).ready(function () {
+            
+    //         if(localStorage.getItem('already') && localStorage.getItem('already') !=''){
+    //             window.location.href = "./introhome2.html"
+    //         }
+
+
+    // })
+
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: false,
+        });
+
+        function nextpage() {
+            localStorage.setItem('already',1)
+            window.location.href = "./introhome2.html"
+
+        }
+
+        // function changeImage() {
+        //     var img = document.getElementById("holdcoinimg");
+        //     img.src = images[x];
+        //     x++;
+        //     if (x >= images.length) {
+        //         x = 0;
+        //     }
+        //     fadeImg(img, 100, true);
+        //     setTimeout(changeImage(), 30000);
+        // }
+
+        // function fadeImg(el, val, fade) {
+        //     if (fade === true) {
+        //         val--;
+        //     } else {
+        //         val++;
+        //     }
+        //     if (val > 0 && val < 100) {
+        //         el.style.opacity = val / 100;
+        //         setTimeout(function () { fadeImg(el, val, fade); },10);
+        //     }
+        // }
+
+        // var images = [], x = 0;
+        // images[0] = "../img/manholdeth.png";
+        // images[1] = "../img/manholdcoin.png";
+        // setTimeout(changeImage(), 30000);
+        
+    </script>
+</body>
+
+</html>
