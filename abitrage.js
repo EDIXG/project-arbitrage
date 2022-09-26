@@ -274,12 +274,12 @@ async function findcoin(
   // console.log("globalcoin",globalcoin);
  
 
-  db.any(`update compare_coin set currentflag = 0 where currentflag = 1 `)
+  db.any(`update coin_info set currentflag = 0 where currentflag = 1 `)
     .then(() => {
       for (let i = 0; i < globalcoin.length; i++) {
         if (globalcoin[i].name != null) {
           db.any(
-            `insert into compare_coin (coinname,price,vol,percen,webname,currentflag,insertdate) 
+            `insert into coin_info (coinname,price,vol,percen,webname,currentflag,insertdate) 
               values($1,$2,$3,$4,$5,$6,$7)`,
             [
               globalcoin[i].name,
@@ -318,12 +318,12 @@ setInterval(() => {
 
 function deleterow7days() {
   db.any(
-    `DELETE from compare_coin where currentflag = 0 and insertdate > '7 day'`
+    `DELETE from coin_info where currentflag = 0 and insertdate > '7 day'`
   )
 }
 
 app.post("/api/getcoinname", (req, res) => {
-  db.any(` SELECT * FROM compare_coin where currentflag = 1`)
+  db.any(` SELECT * FROM coin_info where currentflag = 1`)
     .then((data) => {
       return res.status(200).json({
         MESSAGE: "success",
@@ -344,8 +344,8 @@ app.post("/api/getcoinname", (req, res) => {
 app.post("/api/getcoinbyname", (req, res) => {
   var coinname = _.get(req, ["body", "coinname"]);
   db.any(
-    `SELECT * from compare_coin where currentflag = 1 AND coinname = $1
-    order by compare_coin.price asc ;`,
+    `SELECT * from coin_info where currentflag = 1 AND coinname = $1
+    order by coin_info.price asc ;`,
     [coinname]
   )
 
@@ -383,7 +383,7 @@ app.post("/api/insertcoinprice", (req, res) => {
 
   if (coinname != null) {
     db.any(
-      ` insert into compare_coin (coinname, price, vol, percen, webname ) values ($1,$2,$3,$4,$5) `,
+      ` insert into coin_info (coinname, price, vol, percen, webname ) values ($1,$2,$3,$4,$5) `,
       [coinname, price, vol, percen, webname]
     )
       .then((data) => {
@@ -434,7 +434,7 @@ app.post("/api/contactus", (req, res) => {
   if (email && email.indexOf('@') >= 0 && email.indexOf('.') >= 0) {
     email = email.toLowerCase();
     db.any(
-      ` insert into contactus (name, email, massage) values ($1,$2,$3) `,
+      ` insert into contact_us (name, email, massage) values ($1,$2,$3) `,
       [name, email, massage]
     )
       .then((data) => {
@@ -478,7 +478,7 @@ app.post("/api/updatecoinprice", (req, res) => {
 
   if (coinname != null) {
     db.any(
-      ` update compare_coin set price = $1 , vol = $2 , percen = $3 where coinname = $4 and webname = $5  `,
+      ` update coin_info set price = $1 , vol = $2 , percen = $3 where coinname = $4 and webname = $5  `,
       [price, vol, percen, coinname, webname]
     )
       .then((data) => {
