@@ -304,13 +304,22 @@
         for (let i = 0; i < coinall.length; i++) {
             // coinall[i].percen ?  coinall[i].percen:0
             console.log('#percenof' + coinall[i].coinname.toLocaleLowerCase()+[i+1],parseFloat(coinall[i].percen))
-            if (parseFloat(coinall[i].percen) < 0) {
-            $('#percenof' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'red')
-            $('#percenof2' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'red')
+            if(parseFloat($('#percenof' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).text())<0){
+                $('#percenof' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'red')
+
+            }else{
+                $('#percenof' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'green')
+            }
+            if(parseFloat($('#percenof2' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).text())<0){
+                $('#percenof2' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'red')
+            }else{
+                $('#percenof2' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'green')
+
+            }
+            if ($('#percenmain').text()< 0) {
             $('#percenmain').removeClass("green").addClass("red")
           } else {
-            $('#percenof' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'green')
-            $('#percenof2' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'green')
+           
           }
             
         }
