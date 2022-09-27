@@ -135,8 +135,8 @@ async function getname() {
           webname: "liquid",
           name: response.data[i].currency,
           price: response.data[i].exchange_rate,
-          vol: null,
-          percen: null,
+          vol: 0.00,
+          percen: 0.00,
         });
       }
       // console.log("liquid",liquid)
@@ -184,7 +184,7 @@ async function getname() {
           name: response.data.data[i].contractValCurrency,
           price: response.data.data[i].marketPrice,
           vol: response.data.data[i].volume,
-          percen: null,
+          percen: 0.00,
         });
       }
       // console.log(coinflex);
@@ -278,9 +278,9 @@ async function findcoin(
     .then(() => {
       for (let i = 0; i < globalcoin.length; i++) {
         if (globalcoin[i].name != null) {
-          globalcoin[i].price == null ? 0 : globalcoin[i].price
-          globalcoin[i].percen == null ? 0 : globalcoin[i].percen
-          globalcoin[i].vol == null ? 0 : globalcoin[i].vol
+          // globalcoin[i].price == null ? 0 : globalcoin[i].price
+          // globalcoin[i].percen == null ? 0 : globalcoin[i].percen
+          // globalcoin[i].vol == null ? 0 : globalcoin[i].vol
           db.any(
             `insert into coin_info (coinname,price,vol,percen,webname,currentflag,insertdate) 
               values($1,$2,$3,$4,$5,$6,$7)`,
