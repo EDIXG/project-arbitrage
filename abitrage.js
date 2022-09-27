@@ -278,6 +278,9 @@ async function findcoin(
     .then(() => {
       for (let i = 0; i < globalcoin.length; i++) {
         if (globalcoin[i].name != null) {
+          globalcoin[i].price == null ? 0 : globalcoin[i].price
+          globalcoin[i].percen == null ? 0 : globalcoin[i].percen
+          globalcoin[i].vol == null ? 0 : globalcoin[i].vol
           db.any(
             `insert into coin_info (coinname,price,vol,percen,webname,currentflag,insertdate) 
               values($1,$2,$3,$4,$5,$6,$7)`,

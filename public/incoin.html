@@ -170,11 +170,13 @@
         })
         var showfav2 = localStorage.getItem('favcoin') ? localStorage.getItem('favcoin').split(',') : []
         var profitrate2 = [];
+        var coinall = [];
         var a
         function getcoininfo() {
 
+            coinall=[];
 
-            var coinall = [];
+            
 
             $.ajax({
                 type: 'post',
@@ -210,20 +212,20 @@
             <i id="${'favbutton' + coininfo[0].coinname.toLocaleLowerCase()}" class="far fa-star"></i>
           </div>
             </div>
-            <div style="width: 100%; overflow: scroll;">
+           <!-- <div style="width: 100%; overflow: scroll;">
                 <div style="width: 120%; display: flex; align-items: center; margin-top: 2.7vh;">
                     <div class="rank">Rank</div>
                     <div style="margin-left: 5vh;">Coin</div>
                     <div style="margin-left: 5vh;">On 3,266,596 watchlists</div>
                 </div>
-            </div>
+            </div> -->
 
             <div>
                 <div>Cryptocurrency Price (${coininfo[0].coinname})</div>
             </div>
             <div style="margin-top: 1.3vh; display: flex; align-items: center; justify-content: space-between;">
                 <div style="font-size: 24px;"><b>$${coininfo[0].price ? parseFloat(coininfo[0].price).toFixed(2) : parseFloat(0)}</b></div>
-                <div class="green">
+                <div id="percenmain" class="green">
                     <div><img src="./img/sVector.png"
                             style="width: 8px; height: 4px; object-fit: contain; display: flex;"></div>
                     <div>${coininfo[0].percen ? parseFloat(coininfo[0].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
@@ -243,7 +245,7 @@
                     <div class="rateaibox">
                     <div class="coinbox">
                         <div class="coinimg"><img src="./img/${coinall[0].webname}.png"></div>
-                        <div style="margin-left: 1vh;">${coinall[0].percen ? parseFloat(coinall[0].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
+                        <div id="${'percenof' + coinall[i].coinname.toLocaleLowerCase()+[i+1]}" style="margin-left: 1vh;">${coinall[0].percen ? parseFloat(coinall[0].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
                         <div style="font-size: 16px;"><b>1 ${coinall[0].coinname} </b></div>
                         <div> = ${coinall[0].price ? parseFloat(coinall[0].price).toFixed(2) : parseFloat(0).toFixed(2)} </div>
                     </div>
@@ -259,7 +261,7 @@
                     
                     <div class="coinboxxx">
                         <div class="coinimg"><img src="./img/${coinall[i].webname}.png"></div>
-                        <div style="margin-left: 1vh;">${coinall[i].percen ? parseFloat(coinall[i].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
+                        <div id="${'percenof2' + coinall[i].coinname.toLocaleLowerCase()+[i+1]}" style="margin-left: 1vh;">${coinall[i].percen ? parseFloat(coinall[i].percen).toFixed(2) : parseFloat(0).toFixed(2)}</div>
                         <div style="font-size: 16px;"><b>1 ${coinall[i].coinname} </b></div>
                         <div>= ${coinall[i].price ? parseFloat(coinall[i].price).toFixed(2) : parseFloat(0).toFixed(2)} </div>
                     </div>
@@ -287,21 +289,50 @@
                         }
 
                     } else {
-                        console.log("don't have favorit coin")
+                        // console.log("don't have favorit coin")
                     }
-
-                   
-
-
+                    changecolorleft()
+                    // changecolorright()
                 }
-
-
             })
 
 
-
-
+            
         }
+
+        function changecolorleft() {
+        for (let i = 0; i < coinall.length; i++) {
+            // coinall[i].percen ?  coinall[i].percen:0
+            console.log('#percenof' + coinall[i].coinname.toLocaleLowerCase()+[i+1],parseFloat(coinall[i].percen))
+            if (parseFloat(coinall[i].percen) < 0) {
+            $('#percenof' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'red')
+            $('#percenof2' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'red')
+            $('#percenmain').removeClass("green").addClass("red")
+          } else {
+            $('#percenof' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'green')
+            $('#percenof2' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'green')
+          }
+            
+        }
+      }
+
+    //   function changecolorright() {
+    //     for (let i = 0; i < coinall.length; i++) {
+        
+    //       if (coinall[i].percen < 0) {
+    //         $('#percenof2' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'red')
+
+    //       } else {
+    //         $('#percenof2' + coinall[i].coinname.toLocaleLowerCase()+[i+1]).css('color', 'green')
+    //       }
+
+    //     }
+
+
+    //   }
+      
+    
+    
 
 
         var coinfav = [];

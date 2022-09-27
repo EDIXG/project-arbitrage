@@ -26,6 +26,18 @@
         color: white;
         font-size: 12px;
     }
+    .red {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 10px;
+        gap: 5px;
+        width: 72px;
+        background: red;
+        border-radius: 20px;
+        color: white;
+        font-size: 12px;
+    }
 
     .boxxx {
         padding: 10px;
