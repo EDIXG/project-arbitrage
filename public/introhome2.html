@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,16 @@
   <title>All coin</title>
   <!-- <script src="./js/index.js"></script> -->
   <!-- <script src="./js/index_mobile.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
   <!-- <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap" rel="stylesheet"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
   <!-- <link href="https://fonts.cdnfonts.com/css/circular-std-book" rel="stylesheet"> -->
   <!-- sweetalert2 -->
@@ -141,17 +144,42 @@
         opacity: 1;
       }
     }
+    .boyplay{
+        width: 100%;
+        height: 90%;
+        padding: 20px;
+      }
+
+      @media only screen and (max-width: 375px) {
+      .boyplay{
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+      }
+    }
+
+    @media only screen and (max-width: 320px) {
+      .boyplay{
+        width: 80%;
+        height: 90%;
+        padding: 0px;
+      }
+    }
+
+    
+
+    
   </style>
 
 </head>
 
 <script>
   $.get("./header.html", function (data) {
-      $("#header").html(data);
+    $("#header").html(data);
   }).then(() => {
-      $.get("./sidemenu.html", function (data) {
-          $("#mySidenav-menu").html(data);
-      });
+    $.get("./sidemenu.html", function (data) {
+      $("#mySidenav-menu").html(data);
+    });
   })
   // $.get("./sidemenu.html", function (data) {
   //     $("#mySidenav-menu").html(data);
@@ -163,13 +191,13 @@
 
 <body style="overflow: hidden;">
 
-  
+
 
   <section id="aaaa" style="display: block; height: 100vh;">
-    <div style="width: 100%; height: 30%;">
-      
-        <img src="./img/boyplay.png" style="width: 100%; height: 90%;">
-      
+    <div style="display: flex; justify-content: center; width: 100%; height: 30%;">
+
+      <img class="boyplay" src="./img/boyplay.png">
+
     </div>
 
     <div style="padding:20px; height: 70%; overflow: scroll;">
@@ -481,7 +509,7 @@
     var lowest_usdt_arr = [];
     var all_lowest_coin = [];
 
-    
+
     async function abc() {
 
 
@@ -685,25 +713,25 @@
           html += `
 
           <div id="${all_lowest_coin[i][j].coinname}" class="line">
-          <div onclick="clicktofav('${all_lowest_coin[i][j].coinname}','${'favbutton'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}')">
-            <i id="${'favbutton'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}" class="far fa-star"></i>
+          <div onclick="clicktofav('${all_lowest_coin[i][j].coinname}','${'favbutton' + all_lowest_coin[i][j].coinname.toLocaleLowerCase()}')">
+            <i id="${'favbutton' + all_lowest_coin[i][j].coinname.toLocaleLowerCase()}" class="far fa-star"></i>
           </div>
           <img src="./img/${all_lowest_coin[i][j].coinname}.png" style="width:14%;padding-right: 10px;">
           <div onclick="window.open('./incoin.html?id=${all_lowest_coin[i][j].coinname}', '_self')" style="width:100% ;">
             <div style="width:100%;font-size: 16px;display: flex; justify-content: space-between;">
               <span>${all_lowest_coin[i][j].coinname}</span>
               <div>
-                <span id="${'priceof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">$${all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0)}</span>
+                <span id="${'priceof' + all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">$${all_lowest_coin[i][j].price ? parseFloat(all_lowest_coin[i][j].price) : parseFloat(0)}</span>
               </div>
             </div>
             <div style="display: flex; width: 100%; justify-content: space-between;">
               <div style="font-size: 12px;display: flex;
                   justify-content: flex-start">
                 <span>vol :</span>
-                <span id="${'volof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">${all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol/1000).toFixed(2)+"k" : parseFloat(0).toFixed(2)}</span>
+                <span id="${'volof' + all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">${all_lowest_coin[i][j].vol ? parseFloat(all_lowest_coin[i][j].vol / 1000).toFixed(2) + "k" : parseFloat(0).toFixed(2)}</span>
               </div>
               <div style="font-size: 12px;">
-                <span id="${'percenof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">${all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2):parseFloat(0).toFixed(2)}</span>
+                <span id="${'percenof' + all_lowest_coin[i][j].coinname.toLocaleLowerCase()}">${all_lowest_coin[i][j].percen ? parseFloat(all_lowest_coin[i][j].percen).toFixed(2) : parseFloat(0).toFixed(2)}</span>
                 <span>%</span>
               </div>
             </div>
@@ -714,45 +742,45 @@
             
             `
         }
-        
+
       }
       $('#coineename').html(html)
 
       if (localStorage.getItem('favcoin') && localStorage.getItem('favcoin') != '') {
 
-          // clicktofav()
+        // clicktofav()
 
-          // ['BTC', 'ETH', 'WAN']
-          // console.log("showfav", showfav)
-          for (let i = 0; i < showfav.length; i++) {
-            // console.log(showfav[i].toLocaleLowerCase())
-            // console.log("")
-            $('#favbutton' + showfav[i].toLocaleLowerCase()).addClass("background-star");
+        // ['BTC', 'ETH', 'WAN']
+        // console.log("showfav", showfav)
+        for (let i = 0; i < showfav.length; i++) {
+          // console.log(showfav[i].toLocaleLowerCase())
+          // console.log("")
+          $('#favbutton' + showfav[i].toLocaleLowerCase()).addClass("background-star");
 
-          }
+        }
 
-          }
-      
-          changecolor()
+      }
+
+      changecolor()
     }
 
     function changecolor() {
       for (let i = 0; i < all_lowest_coin.length; i++) {
         for (let j = 0; j < all_lowest_coin[i].length; j++) {
-          if(all_lowest_coin[i][j].percen < 0){
-            $('#percenof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()).css('color','red')
-            
-          }else{
-            $('#percenof'+all_lowest_coin[i][j].coinname.toLocaleLowerCase()).css('color','green')
+          if (all_lowest_coin[i][j].percen < 0) {
+            $('#percenof' + all_lowest_coin[i][j].coinname.toLocaleLowerCase()).css('color', 'red')
+
+          } else {
+            $('#percenof' + all_lowest_coin[i][j].coinname.toLocaleLowerCase()).css('color', 'green')
           }
-          
+
         }
-        
-        
+
+
       }
     }
 
-   
+
 
     var coinfav = [];
 

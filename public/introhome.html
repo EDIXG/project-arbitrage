@@ -155,44 +155,18 @@
         height: 100vh;
     }
 
-    .holdcoin {
-        width: 71%;
-        transition: 2s;
-        z-index: 2;
-        background-image: url(../img/manholdcoin.png);
-        animation-name: animate;
-        animation-direction: alternate-reverse;
-        animation-play-state: running;
-        animation-timing-function: ease-in-out;
-        animation-duration: 3s;
-        animation-fill-mode: forwards;
-        animation-iteration-count: infinite;
+
+    .img-size {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: -webkit-fill-available;
+        object-fit: contain;
+
     }
 
-    @keyframes animtae {
-        0% {
-            background-image: url('../img/manholdeth.png');
-        }
-
-        20% {
-            background-image: url('../img/manholdcoin.png');
-        }
-
-        40% {
-            background-image: url('../img/manholdeth.png');
-        }
-
-        60% {
-            background-image: url('../img/manholdcoin.png');
-        }
-
-        80% {
-            background-image: url('../img/manholdeth.png');
-        }
-
-        100% {
-            background-image: url('../img/manholdcoin.png');
-        }
+    .transition-img {
+        opacity: 0;
 
     }
 </style>
@@ -218,12 +192,22 @@
                     </div>
                 </div>
 
-                <div style="display: flex; position: absolute; top: 30%; width: 100%; height: 70%;">
+                <div style="display: flex; position: absolute; top: 32%; width: 100%; height: 70%;">
 
                     <div style="display: flex; width: 100%; height: 100%;">
-                        <img src="./img/intropage1.png" style="width: 100%;"> 
-                        <img src="./img/Intropage1-1.png" style="z-index: 1; position: absolute;width: 100%;height:-webkit-fill-available;">
-                        <img src="./img/intropage1-2.png" style="z-index: 2; position:absolute;width: 100%;height:-webkit-fill-available;">
+                        <img src="./img/intropage1.png" style=" width: 100%; object-fit: contain;">
+                        <img class="transition-img img-size" src="../imgcoin/BTCP1.png">
+                        <img class="transition-img img-size" src="../imgcoin/ETHP1.png">
+                        <img class="transition-img img-size" src="../imgcoin/WANP1.png">
+                        <img class="transition-img img-size" src="../imgcoin/XRPP1.png">
+                        <img class="transition-img img-size" src="../imgcoin/LTCP1.png">
+                        <img class="transition-img img-size" src="../imgcoin/BCHP1.png">
+                        <img class="transition-img img-size" src="../imgcoin/BNBP1.png">
+                        <img class="transition-img img-size" src="../imgcoin/XLMP1.png">
+                        <img class="transition-img img-size" src="../imgcoin/SHIBP1.png">
+                        <img class="transition-img img-size" src="../imgcoin/USDTP1.png">
+                        <img src="./img/intropage1-2.png"
+                            style="object-fit: contain; z-index: 9999; position:absolute;width: 100%;height:-webkit-fill-available;">
                     </div>
 
                 </div>
@@ -245,9 +229,9 @@
                     </div>
                 </div>
 
-                <div style="display: flex; position: relative; top: 30%; height: 70%; width: 100%; position: absolute;">
+                <div style="display: flex;top: 32%; height: 70%; width: 100%; position: absolute;">
                     <div style="display: flex;  height: 100%; width: 100%;">
-                        <img src="./img/intropage2.png" style="width: 100%;">
+                        <img src="./img/intropage2.png" style="width: 100%; object-fit: contain;">
                     </div>
                 </div>
 
@@ -269,16 +253,18 @@
                     </div>
                     <div onclick="nextpage()"
                         style="width: 100%; height: 5vh; display: flex; justify-content: end; padding-top: 20px; padding-right: 20px; ">
-                        <div style="width: 30%; height: 100%;  display: flex; align-items: center; justify-content: center; border: 1px solid #3071E7; background-color: #3071E7; border-radius: 99px;">
+                        <div
+                            style="width: 30%; height: 100%;  display: flex; align-items: center; justify-content: center; border: 1px solid #3071E7; background-color: #3071E7; border-radius: 99px;">
                             <span style="padding: 20px; color: white;">Get start</span>
                         </div>
 
                     </div>
                 </div>
 
-                <div style="display: flex; position: absolute; top: 30%; height: 80%; width: 100%;">
+                <div style="display: flex; position: absolute; top: 22%; height: 80%; width: 100%; z-index: -1;">
                     <div style="display: flex; height: 100%; width: 100%;">
-                        <img src="./img/intropage3.png" style="width: 100%; height: 88%; z-index: -1;">
+                        <img src="./img/intropage3.png"
+                            style="width: 100%; height: 100%; object-fit: contain; z-index: -1;">
                     </div>
                 </div>
 
@@ -314,33 +300,41 @@
 
         }
 
-        // function changeImage() {
-        //     var img = document.getElementById("holdcoinimg");
-        //     img.src = images[x];
-        //     x++;
-        //     if (x >= images.length) {
-        //         x = 0;
-        //     }
-        //     fadeImg(img, 100, true);
-        //     setTimeout(changeImage(), 30000);
-        // }
+        startImageTransition();
 
-        // function fadeImg(el, val, fade) {
-        //     if (fade === true) {
-        //         val--;
-        //     } else {
-        //         val++;
-        //     }
-        //     if (val > 0 && val < 100) {
-        //         el.style.opacity = val / 100;
-        //         setTimeout(function () { fadeImg(el, val, fade); },10);
-        //     }
-        // }
-
-        // var images = [], x = 0;
-        // images[0] = "../img/manholdeth.png";
-        // images[1] = "../img/manholdcoin.png";
-        // setTimeout(changeImage(), 30000);
+        function startImageTransition() {
+            var images = document.getElementsByClassName("transition-img");
+            for (var i = 0; i < images.length; ++i) {
+                images[i].style.opacity = 1;
+            }
+            var top = 1;
+            var cur = images.length - 1;
+            setInterval(changeImage, 4000);
+            async function changeImage() {
+                var nextImage = (1 + cur) % images.length;
+                images[cur].style.zIndex = top + 1;
+                images[nextImage].style.zIndex = top;
+                await transition();
+                images[cur].style.zIndex = top;
+                images[nextImage].style.zIndex = top + 1;
+                top = top + 1;
+                images[cur].style.opacity = 1;
+                cur = nextImage;
+            }
+            function transition() {
+                return new Promise(function (resolve, reject) {
+                    var del = 0.01;
+                    var id = setInterval(changeOpacity, 10);
+                    function changeOpacity() {
+                        images[cur].style.opacity -= del;
+                        if (images[cur].style.opacity <= 0) {
+                            clearInterval(id);
+                            resolve();
+                        }
+                    }
+                })
+            }
+        }
 
     </script>
 </body>
