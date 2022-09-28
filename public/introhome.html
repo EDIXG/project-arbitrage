@@ -162,7 +162,7 @@
         width: 100%;
         height: -webkit-fill-available;
         object-fit: contain;
-
+        
     }
 
     .transition-img {
@@ -196,7 +196,7 @@
 
                     <div style="display: flex; width: 100%; height: 100%;">
                         <img src="./img/intropage1.png" style=" width: 100%; object-fit: contain;">
-                        <img class="transition-img img-size" src="../imgcoin/BTCP1.png">
+                        <img class="transition-img img-size" src="../imgcoin/BTCP1.png" style="opacity: 1;">
                         <img class="transition-img img-size" src="../imgcoin/ETHP1.png">
                         <img class="transition-img img-size" src="../imgcoin/WANP1.png">
                         <img class="transition-img img-size" src="../imgcoin/XRPP1.png">
@@ -309,7 +309,7 @@
             }
             var top = 1;
             var cur = images.length - 1;
-            setInterval(changeImage, 4000);
+            setInterval(changeImage, 3000);
             async function changeImage() {
                 var nextImage = (1 + cur) % images.length;
                 images[cur].style.zIndex = top + 1;
